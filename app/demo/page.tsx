@@ -92,6 +92,72 @@ export default function DemoPage() {
         </div>
       </section>
 
+      {/* Why Easy Scroll */}
+      <section className="py-24 px-6 bg-gradient-to-b from-black via-blue-950/10 to-black">
+        <div className="max-w-5xl mx-auto">
+          <RevealOnScroll animation="fadeInUp">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">
+                Why <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Easy Scroll</span>?
+              </h2>
+              <p className="text-xl text-gray-400">Three simple reasons</p>
+            </div>
+          </RevealOnScroll>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <RevealOnScroll animation="fadeInUp" delay={100}>
+              <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
+                <div className="text-5xl mb-4">1️⃣</div>
+                <h3 className="text-2xl font-bold mb-3 text-blue-400">Easy to Install</h3>
+                <p className="text-gray-300 text-lg flex-grow">
+                  One command. No configuration files. No setup headaches.
+                </p>
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
+                  npm i @chemmangat/easy-scroll
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll animation="fadeInUp" delay={200}>
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
+                <div className="text-5xl mb-4">2️⃣</div>
+                <h3 className="text-2xl font-bold mb-3 text-purple-400">Easy to Use</h3>
+                <p className="text-gray-300 text-lg flex-grow">
+                  Simple React components. Intuitive props. Works immediately.
+                </p>
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
+                  &lt;RevealOnScroll animation=&quot;fadeIn&quot;&gt;
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll animation="fadeInUp" delay={300}>
+              <div className="bg-gradient-to-br from-pink-900/20 to-transparent border border-pink-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
+                <div className="text-5xl mb-4">3️⃣</div>
+                <h3 className="text-2xl font-bold mb-3 text-pink-400">Easy on Performance</h3>
+                <p className="text-gray-300 text-lg flex-grow">
+                  Zero dependencies. Native browser APIs. Lightweight and fast.
+                </p>
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
+                  0 dependencies • 10KB gzipped
+                </div>
+              </div>
+            </RevealOnScroll>
+          </div>
+
+          <RevealOnScroll animation="scaleUp" delay={400}>
+            <div className="bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 border border-blue-500/20 rounded-2xl p-8 text-center">
+              <p className="text-2xl md:text-3xl font-bold text-white leading-relaxed">
+                Easy to install. Easy to use. Easy on performance.
+              </p>
+              <p className="text-lg text-gray-400 mt-4">
+                That&apos;s why it&apos;s called <span className="text-blue-400 font-semibold">Easy Scroll</span>.
+              </p>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-32 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black" />
@@ -295,16 +361,16 @@ export default function DemoPage() {
         <div className="container mx-auto px-6 relative z-10">
           <RevealOnScroll animation="fadeIn">
             <div className="text-center">
-              <h2 className="text-6xl md:text-8xl font-black tracking-tight mb-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-8">
                 Ready to Elevate?
               </h2>
-              <p className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light px-4">
                 Install @chemmangat/easy-scroll and start building beautiful scroll experiences today.
               </p>
-              <div className="inline-flex items-center gap-4 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl px-8 py-6 font-mono text-lg mb-8">
+              <div className="inline-flex flex-wrap items-center justify-center gap-2 md:gap-4 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl px-4 py-4 md:px-8 md:py-6 font-mono text-sm md:text-lg mb-8">
                 <span className="text-gray-500">$</span>
                 <span className="text-purple-400">npm install</span>
-                <span className="text-white">@chemmangat/easy-scroll</span>
+                <span className="text-white break-all">@chemmangat/easy-scroll</span>
               </div>
             </div>
           </RevealOnScroll>

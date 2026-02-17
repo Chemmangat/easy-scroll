@@ -4,8 +4,7 @@ import {
   RevealOnScroll, 
   ScrollProgress, 
   CountOnScroll, 
-  StaggerChildren, 
-  ParallaxSection 
+  StaggerChildren
 } from '@chemmangat/easy-scroll';
 
 export default function ShowcasePage() {
@@ -64,10 +63,76 @@ export default function ShowcasePage() {
           </RevealOnScroll>
 
           <RevealOnScroll animation="scaleUp" delay={600}>
-            <div className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-xl px-6 py-3 font-mono">
+            <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 md:px-6 font-mono text-sm md:text-base">
               <span className="text-green-400">✓</span>
               <span className="text-gray-400">npm i</span>
-              <span className="text-white">@chemmangat/easy-scroll</span>
+              <span className="text-white break-all">@chemmangat/easy-scroll</span>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* Why Easy Scroll */}
+      <section className="py-24 px-6 bg-gradient-to-b from-zinc-950 via-blue-950/10 to-zinc-950">
+        <div className="max-w-5xl mx-auto">
+          <RevealOnScroll animation="fadeInUp">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Why <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Easy Scroll</span>?
+              </h2>
+              <p className="text-lg text-gray-400">Three simple reasons</p>
+            </div>
+          </RevealOnScroll>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <RevealOnScroll animation="fadeInUp" delay={100}>
+              <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
+                <div className="text-5xl mb-4">1️⃣</div>
+                <h3 className="text-2xl font-bold mb-3 text-blue-400">Easy to Install</h3>
+                <p className="text-gray-300 flex-grow">
+                  One command. No configuration files. No setup headaches.
+                </p>
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
+                  npm i @chemmangat/easy-scroll
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll animation="fadeInUp" delay={200}>
+              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
+                <div className="text-5xl mb-4">2️⃣</div>
+                <h3 className="text-2xl font-bold mb-3 text-purple-400">Easy to Use</h3>
+                <p className="text-gray-300 flex-grow">
+                  Simple React components. Intuitive props. Works immediately.
+                </p>
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
+                  &lt;RevealOnScroll animation=&quot;fadeIn&quot;&gt;
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll animation="fadeInUp" delay={300}>
+              <div className="bg-gradient-to-br from-pink-900/20 to-transparent border border-pink-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
+                <div className="text-5xl mb-4">3️⃣</div>
+                <h3 className="text-2xl font-bold mb-3 text-pink-400">Easy on Performance</h3>
+                <p className="text-gray-300 flex-grow">
+                  Zero dependencies. Native browser APIs. Lightweight and fast.
+                </p>
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
+                  0 dependencies • 10KB gzipped
+                </div>
+              </div>
+            </RevealOnScroll>
+          </div>
+
+          <RevealOnScroll animation="scaleUp" delay={400}>
+            <div className="bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 border border-blue-500/20 rounded-2xl p-8 text-center">
+              <p className="text-xl md:text-2xl font-bold text-white leading-relaxed">
+                Easy to install. Easy to use. Easy on performance.
+              </p>
+              <p className="text-lg text-gray-400 mt-4">
+                That&apos;s why it&apos;s called <span className="text-blue-400 font-semibold">Easy Scroll</span>.
+              </p>
             </div>
           </RevealOnScroll>
         </div>
@@ -178,7 +243,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Parallax Quote */}
-      <ParallaxSection speed={0.5} className="py-32 my-24">
+      <section className="py-32 my-24 bg-gradient-to-b from-transparent via-zinc-900/50 to-transparent">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <RevealOnScroll animation="fadeIn" duration={1000}>
             <div className="space-y-6">
@@ -190,7 +255,7 @@ export default function ShowcasePage() {
             </div>
           </RevealOnScroll>
         </div>
-      </ParallaxSection>
+      </section>
 
       {/* Animation Types */}
       <section className="py-24 px-6">
