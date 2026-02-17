@@ -186,7 +186,7 @@ export default function ShowcasePage() {
             <div className="space-y-6">
               <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
               <blockquote className="text-3xl md:text-5xl font-light text-gray-200 leading-relaxed">
-                "Smooth animations that bring your content to life"
+                &ldquo;Smooth animations that bring your content to life&rdquo;
               </blockquote>
               <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
             </div>
