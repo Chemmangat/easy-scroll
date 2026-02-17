@@ -276,12 +276,12 @@ export default function DemoPage() {
                 Ready to Elevate?
               </h2>
               <p className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light">
-                Install easy-scroll and start building beautiful scroll experiences today.
+                Install @chemmangat/easy-scroll and start building beautiful scroll experiences today.
               </p>
               <div className="inline-flex items-center gap-4 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl px-8 py-6 font-mono text-lg mb-8">
                 <span className="text-gray-500">$</span>
                 <span className="text-purple-400">npm install</span>
-                <span className="text-white">easy-scroll</span>
+                <span className="text-white">@chemmangat/easy-scroll</span>
               </div>
             </div>
           </RevealOnScroll>

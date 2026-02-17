@@ -1,5 +1,5 @@
 {
-  "name": "easy-scroll",
+  "name": "@chemmangat/easy-scroll",
   "version": "1.0.0",
   "description": "Lightweight scroll-driven animations using native CSS Scroll Timeline API. Zero dependencies.",
   "main": "./dist/index.js",
