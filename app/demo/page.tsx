@@ -17,8 +17,6 @@ export default function DemoPage() {
       <nav className="fixed top-6 left-6 z-[100] flex gap-3">
         <a
           href="https://www.chemmangathari.in/"
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 rounded-full hover:border-purple-500/50 transition-all group shadow-xl"
         >
           <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
