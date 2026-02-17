@@ -118,8 +118,8 @@ export default function ShowcasePage() {
                 <p className="text-gray-300 flex-grow">
                   Zero dependencies. Native browser APIs. Lightweight and fast.
                 </p>
-                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
-                  0 dependencies • 10KB gzipped
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400 break-words">
+                  0 dependencies • 9.3KB
                 </div>
               </div>
             </RevealOnScroll>
