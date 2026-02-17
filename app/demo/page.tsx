@@ -138,8 +138,8 @@ export default function DemoPage() {
                 <p className="text-gray-300 text-lg flex-grow">
                   Zero dependencies. Native browser APIs. Lightweight and fast.
                 </p>
-                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
-                  0 dependencies • 10KB gzipped
+                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400 break-words">
+                  0 dependencies • 9.3KB
                 </div>
               </div>
             </RevealOnScroll>
@@ -168,10 +168,10 @@ export default function DemoPage() {
             </h2>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <StatsCard
               label="Bundle Size"
-              value={<CountOnScroll from={0} to={3} duration={2000} formatFn={(n) => `${n.toFixed(1)}KB`} />}
+              value={<CountOnScroll from={0} to={9.3} duration={2000} formatFn={(n) => `${n.toFixed(1)}KB`} />}
               icon="📦"
             />
             <StatsCard
@@ -391,14 +391,14 @@ export default function DemoPage() {
 function StatsCard({ label, value, icon }: { label: string; value: React.ReactNode; icon: string }) {
   return (
     <RevealOnScroll animation="scaleUp" duration={600}>
-      <div className="group relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-3xl p-8 text-center hover:border-purple-500/50 transition-all hover:scale-105">
+      <div className="group relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-3xl p-4 md:p-8 text-center hover:border-purple-500/50 transition-all hover:scale-105 min-h-[180px] md:min-h-[220px] flex flex-col justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 rounded-3xl transition-all" />
         <div className="relative">
-          <div className="text-5xl mb-4">{icon}</div>
-          <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
+          <div className="text-4xl md:text-5xl mb-3 md:mb-4">{icon}</div>
+          <div className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 md:mb-3 break-words">
             {value}
           </div>
-          <div className="text-gray-400 text-sm uppercase tracking-widest font-semibold">{label}</div>
+          <div className="text-gray-400 text-xs md:text-sm uppercase tracking-widest font-semibold break-words px-2">{label}</div>
         </div>
       </div>
     </RevealOnScroll>
