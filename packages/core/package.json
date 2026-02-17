@@ -1,5 +1,5 @@
 {
-  "name": "react-scroll-motion",
+  "name": "easy-scroll",
   "version": "1.0.0",
   "description": "Lightweight scroll-driven animations using native CSS Scroll Timeline API. Zero dependencies.",
   "main": "./dist/index.js",
@@ -31,7 +31,7 @@
     "typescript",
     "zero-dependencies"
   ],
-  "author": "Your Name",
+  "author": "Chemmangat",
   "license": "MIT",
   "repository": {
     "type": "git",

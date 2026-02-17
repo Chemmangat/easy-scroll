@@ -25,7 +25,7 @@ export default function DemoPage() {
           <RevealOnScroll animation="blurIn" duration={1200}>
             <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
-                Scroll Magic
+                Easy Scroll
               </span>
             </h1>
           </RevealOnScroll>
@@ -275,13 +275,13 @@ export default function DemoPage() {
               <h2 className="text-6xl md:text-8xl font-black tracking-tight mb-8">
                 Ready to Elevate?
               </h2>
-              <p className="text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-light">
-                Install react-scroll-motion and start building beautiful scroll experiences today.
+              <p className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light">
+                Install easy-scroll and start building beautiful scroll experiences today.
               </p>
               <div className="inline-flex items-center gap-4 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl px-8 py-6 font-mono text-lg mb-8">
                 <span className="text-gray-500">$</span>
                 <span className="text-purple-400">npm install</span>
-                <span className="text-white">react-scroll-motion</span>
+                <span className="text-white">easy-scroll</span>
               </div>
             </div>
           </RevealOnScroll>
@@ -291,7 +291,7 @@ export default function DemoPage() {
       {/* Footer */}
       <footer className="py-16 border-t border-gray-900">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-gray-500 mb-4">Built with Next.js, TypeScript, and native CSS Scroll Timeline API</p>
+          <p className="text-gray-500 mb-4">easy-scroll - Built with Next.js, TypeScript, and native CSS Scroll Timeline API</p>
           <p className="text-gray-600 text-sm">Zero dependencies • Pure performance • Open source</p>
         </div>
       </footer>

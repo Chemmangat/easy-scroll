@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "react-scroll-motion | Lightweight Scroll Animations",
+  title: "easy-scroll | Lightweight Scroll Animations",
   description: "Lightweight scroll-driven animations using native CSS Scroll Timeline API. Zero dependencies. Pure performance.",
 };
 
