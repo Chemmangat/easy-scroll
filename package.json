@@ -1,6 +1,10 @@
 {
   "name": "react-scroll-motion",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Lightweight scroll-driven animations using native CSS Scroll Timeline API. Zero dependencies.",
+  "keywords": ["react", "scroll", "animation", "intersection-observer", "scroll-timeline", "nextjs"],
+  "author": "Your Name",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
