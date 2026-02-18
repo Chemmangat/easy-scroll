@@ -69,28 +69,28 @@ export function InteractivePlayground({ type }: InteractivePlaygroundProps) {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-6">
+    <div className="space-y-6 w-full overflow-hidden">
+      <div className="grid md:grid-cols-2 gap-6 w-full">
         {/* Code Editor */}
-        <div className="space-y-3">
+        <div className="space-y-3 w-full">
           <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Code</h4>
-          <div className="bg-gray-950 border border-gray-800 rounded-xl p-6 overflow-x-auto h-[400px]">
-            <pre className="text-sm text-gray-300 font-mono leading-relaxed">
+          <div className="bg-gray-950 border border-gray-800 rounded-xl p-4 md:p-6 overflow-x-auto h-[400px] w-full">
+            <pre className="text-xs md:text-sm text-gray-300 font-mono leading-relaxed">
               <code>{code}</code>
             </pre>
           </div>
         </div>
 
         {/* Live Preview */}
-        <div className="space-y-3">
+        <div className="space-y-3 w-full">
           <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Live Preview</h4>
-          <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8 h-[400px] flex items-center justify-center overflow-hidden">
-            <div key={key} className="w-full">
+          <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-4 md:p-8 h-[400px] flex items-center justify-center overflow-hidden w-full">
+            <div key={key} className="w-full max-w-full">
               {type === 'reveal' && (
                 <RevealOnScroll animation="fadeInUp" delay={200} duration={600}>
-                  <div className="p-8 bg-purple-500/20 border border-purple-500/50 rounded-xl">
-                    <h3 className="text-2xl font-bold">Hello World!</h3>
-                    <p className="text-gray-300 mt-2">This animates on scroll</p>
+                  <div className="p-4 md:p-8 bg-purple-500/20 border border-purple-500/50 rounded-xl">
+                    <h3 className="text-xl md:text-2xl font-bold">Hello World!</h3>
+                    <p className="text-sm md:text-base text-gray-300 mt-2">This animates on scroll</p>
                   </div>
                 </RevealOnScroll>
               )}
@@ -99,15 +99,15 @@ export function InteractivePlayground({ type }: InteractivePlaygroundProps) {
                 <StaggerChildren 
                   animation="scaleUp" 
                   staggerDelay={100}
-                  className="grid grid-cols-3 gap-4"
+                  className="grid grid-cols-3 gap-2 md:gap-4"
                 >
-                  <div className="p-6 bg-pink-500/20 border border-pink-500/50 rounded-xl text-center">
+                  <div className="p-3 md:p-6 bg-pink-500/20 border border-pink-500/50 rounded-xl text-center text-xs md:text-base">
                     Card 1
                   </div>
-                  <div className="p-6 bg-pink-500/20 border border-pink-500/50 rounded-xl text-center">
+                  <div className="p-3 md:p-6 bg-pink-500/20 border border-pink-500/50 rounded-xl text-center text-xs md:text-base">
                     Card 2
                   </div>
-                  <div className="p-6 bg-pink-500/20 border border-pink-500/50 rounded-xl text-center">
+                  <div className="p-3 md:p-6 bg-pink-500/20 border border-pink-500/50 rounded-xl text-center text-xs md:text-base">
                     Card 3
                   </div>
                 </StaggerChildren>
@@ -119,7 +119,7 @@ export function InteractivePlayground({ type }: InteractivePlaygroundProps) {
                   to={9999}
                   duration={2000}
                   formatFn={(n) => n.toLocaleString()}
-                  className="text-6xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+                  className="text-4xl md:text-6xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
                 />
               )}
             </div>

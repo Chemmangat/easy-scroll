@@ -9,7 +9,7 @@ import {
 
 export default function ShowcasePage() {
   return (
-    <main className="bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white">
+    <main className="bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white overflow-x-hidden">
       <ScrollProgress color="linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)" height={3} />
 
       {/* Navigation */}
@@ -35,10 +35,10 @@ export default function ShowcasePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative px-6">
+      <section className="min-h-screen flex items-center justify-center relative px-4 md:px-6 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -49,7 +49,7 @@ export default function ShowcasePage() {
           </RevealOnScroll>
 
           <RevealOnScroll animation="fadeInUp" delay={200}>
-            <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 tracking-tight">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Showcase
               </span>
@@ -73,7 +73,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Why Easy Scroll */}
-      <section className="py-24 px-6 bg-gradient-to-b from-zinc-950 via-blue-950/10 to-zinc-950">
+      <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-950 via-blue-950/10 to-zinc-950 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <RevealOnScroll animation="fadeInUp">
             <div className="text-center mb-16">
@@ -139,7 +139,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Stats Counter */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 md:px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
@@ -179,7 +179,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Feature Cards with Stagger */}
-      <section className="py-24 px-6 bg-gradient-to-b from-transparent via-purple-950/5 to-transparent">
+      <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-transparent via-purple-950/5 to-transparent overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -243,8 +243,8 @@ export default function ShowcasePage() {
       </section>
 
       {/* Parallax Quote */}
-      <section className="py-32 my-24 bg-gradient-to-b from-transparent via-zinc-900/50 to-transparent">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-32 my-24 bg-gradient-to-b from-transparent via-zinc-900/50 to-transparent overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <RevealOnScroll animation="fadeIn" duration={1000}>
             <div className="space-y-6">
               <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
@@ -258,7 +258,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Animation Types */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 md:px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -337,7 +337,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-6">
+      <section className="py-32 px-4 md:px-6 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center">
           <RevealOnScroll animation="scaleUp">
             <div className="bg-gradient-to-br from-blue-900/30 via-purple-900/30 to-pink-900/30 border border-purple-500/30 rounded-3xl p-12">
@@ -369,7 +369,7 @@ export default function ShowcasePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-zinc-900">
+      <footer className="py-12 px-4 md:px-6 border-t border-zinc-900 overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500">
             Built with ❤️ using @chemmangat/easy-scroll

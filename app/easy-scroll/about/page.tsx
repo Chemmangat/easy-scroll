@@ -10,7 +10,7 @@ import { StaggerChildren } from '@/src/components/StaggerChildren';
 
 export default function DemoPage() {
   return (
-    <main className="bg-black text-white overflow-x-hidden">
+    <main className="bg-black text-white overflow-x-hidden w-full">
       <ScrollProgress color="linear-gradient(90deg, #8b5cf6, #ec4899)" height={4} />
 
       {/* Navigation */}
@@ -37,16 +37,16 @@ export default function DemoPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 md:px-6">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-pink-900/30" />
-          <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-20 left-10 md:left-20 w-48 h-48 md:w-72 md:h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
         
-        <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-6xl">
           <RevealOnScroll animation="blurIn" duration={1200}>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-6">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-6">
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
                 Easy Scroll
               </span>
@@ -93,7 +93,7 @@ export default function DemoPage() {
       </section>
 
       {/* Why Easy Scroll */}
-      <section className="py-24 px-6 bg-gradient-to-b from-black via-blue-950/10 to-black">
+      <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-black via-blue-950/10 to-black overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <RevealOnScroll animation="fadeInUp">
             <div className="text-center mb-16">
@@ -159,9 +159,9 @@ export default function DemoPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 relative">
+      <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black" />
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-5xl md:text-6xl font-black text-center mb-20 tracking-tight">
               Project Stats
@@ -194,8 +194,8 @@ export default function DemoPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-32 relative">
-        <div className="container mx-auto px-6">
+      <section className="py-32 relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <RevealOnScroll animation="fadeInUp">
             <div className="text-center mb-20">
               <h2 className="text-6xl md:text-7xl font-black tracking-tight mb-6">
@@ -235,8 +235,8 @@ export default function DemoPage() {
       </section>
 
       {/* Interactive Playground Section */}
-      <section id="playground" className="py-32 bg-gradient-to-b from-black via-gray-950 to-black">
-        <div className="container mx-auto px-6">
+      <section id="playground" className="py-32 bg-gradient-to-b from-black via-gray-950 to-black overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <RevealOnScroll animation="fadeInUp">
             <div className="text-center mb-20">
               <h2 className="text-6xl md:text-7xl font-black tracking-tight mb-6">
@@ -274,8 +274,8 @@ export default function DemoPage() {
       </section>
 
       {/* Showcase Section - Keep for visual demos */}
-      <section className="py-32 bg-gradient-to-b from-black via-purple-950/5 to-black">
-        <div className="container mx-auto px-6">
+      <section className="py-32 bg-gradient-to-b from-black via-purple-950/5 to-black overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <RevealOnScroll animation="fadeInUp">
             <div className="text-center mb-20">
               <h2 className="text-6xl md:text-7xl font-black tracking-tight mb-6">
@@ -287,7 +287,7 @@ export default function DemoPage() {
             </div>
           </RevealOnScroll>
 
-          <div className="space-y-40">
+          <div className="space-y-32 md:space-y-40 w-full max-w-full overflow-hidden">
             <ShowcaseItem
               animation="slideInLeft"
               title="Reveal on Scroll"
@@ -314,9 +314,9 @@ export default function DemoPage() {
       </section>
 
       {/* Parallax Section */}
-      <ParallaxSection speed={0.5} className="py-48 my-32 relative">
+      <ParallaxSection speed={0.5} className="py-48 my-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20" />
-        <div className="container mx-auto px-6 relative z-10 max-w-5xl">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-5xl">
           <RevealOnScroll animation="fadeIn" duration={1200}>
             <div className="text-center space-y-8">
               <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
@@ -330,8 +330,8 @@ export default function DemoPage() {
       </ParallaxSection>
 
       {/* Cards Grid */}
-      <section className="py-32">
-        <div className="container mx-auto px-6">
+      <section className="py-32 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-6xl md:text-7xl font-black text-center mb-20 tracking-tight">
               Everything You Need
@@ -356,9 +356,9 @@ export default function DemoPage() {
       {/* CTA Section */}
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-purple-950/30 via-transparent to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-purple-500/10 rounded-full blur-3xl" />
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <RevealOnScroll animation="fadeIn">
             <div className="text-center">
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight mb-8">
@@ -378,8 +378,8 @@ export default function DemoPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 border-t border-gray-900">
-        <div className="container mx-auto px-6 text-center">
+      <footer className="py-16 border-t border-gray-900 overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 text-center">
           <p className="text-gray-500 mb-4">easy-scroll - Built with Next.js, TypeScript, and native CSS Scroll Timeline API</p>
           <p className="text-gray-600 text-sm">Zero dependencies • Pure performance • Open source</p>
         </div>
@@ -439,56 +439,56 @@ function ShowcaseItem({
 
   return (
     <RevealOnScroll animation={animation} duration={1000}>
-      <div className={`flex flex-col md:flex-row items-center gap-16 ${align === 'right' ? 'md:flex-row-reverse' : ''}`}>
-        <div className="flex-1">
-          <div className={`relative bg-gradient-to-br ${colorMap[color]} border border-gray-800 rounded-3xl aspect-video flex items-center justify-center overflow-hidden group`}>
+      <div className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${align === 'right' ? 'md:flex-row-reverse' : ''}`}>
+        <div className="flex-1 w-full">
+          <div className={`relative bg-gradient-to-br ${colorMap[color]} border border-gray-800 rounded-3xl aspect-video flex items-center justify-center overflow-hidden group w-full`}>
             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             
             {/* Animated demo elements inside the box */}
-            <div className="relative w-full h-full flex items-center justify-center p-8">
+            <div className="relative w-full h-full flex items-center justify-center p-4 md:p-8">
               {color === 'purple' && (
-                <div className="space-y-4 w-full">
-                  <div className="animate-[fadeInUp_2s_ease-in-out_infinite] bg-purple-500/30 backdrop-blur-sm border border-purple-500/50 rounded-xl p-4 text-center">
-                    <span className="text-sm font-semibold">Fade In Up</span>
+                <div className="space-y-3 md:space-y-4 w-full max-w-full">
+                  <div className="animate-[fadeInUp_2s_ease-in-out_infinite] bg-purple-500/30 backdrop-blur-sm border border-purple-500/50 rounded-xl p-3 md:p-4 text-center">
+                    <span className="text-xs md:text-sm font-semibold">Fade In Up</span>
                   </div>
-                  <div className="animate-[fadeInUp_2s_ease-in-out_0.3s_infinite] bg-purple-500/30 backdrop-blur-sm border border-purple-500/50 rounded-xl p-4 text-center">
-                    <span className="text-sm font-semibold">Staggered</span>
+                  <div className="animate-[fadeInUp_2s_ease-in-out_0.3s_infinite] bg-purple-500/30 backdrop-blur-sm border border-purple-500/50 rounded-xl p-3 md:p-4 text-center">
+                    <span className="text-xs md:text-sm font-semibold">Staggered</span>
                   </div>
-                  <div className="animate-[fadeInUp_2s_ease-in-out_0.6s_infinite] bg-purple-500/30 backdrop-blur-sm border border-purple-500/50 rounded-xl p-4 text-center">
-                    <span className="text-sm font-semibold">Animation</span>
+                  <div className="animate-[fadeInUp_2s_ease-in-out_0.6s_infinite] bg-purple-500/30 backdrop-blur-sm border border-purple-500/50 rounded-xl p-3 md:p-4 text-center">
+                    <span className="text-xs md:text-sm font-semibold">Animation</span>
                   </div>
                 </div>
               )}
               
               {color === 'pink' && (
-                <div className="grid grid-cols-3 gap-4 w-full">
+                <div className="grid grid-cols-3 gap-2 md:gap-4 w-full max-w-full">
                   <div className="animate-[scaleUp_2s_ease-in-out_infinite] bg-pink-500/30 backdrop-blur-sm border border-pink-500/50 rounded-xl aspect-square flex items-center justify-center">
-                    <span className="text-2xl">1</span>
+                    <span className="text-lg md:text-2xl">1</span>
                   </div>
                   <div className="animate-[scaleUp_2s_ease-in-out_0.2s_infinite] bg-pink-500/30 backdrop-blur-sm border border-pink-500/50 rounded-xl aspect-square flex items-center justify-center">
-                    <span className="text-2xl">2</span>
+                    <span className="text-lg md:text-2xl">2</span>
                   </div>
                   <div className="animate-[scaleUp_2s_ease-in-out_0.4s_infinite] bg-pink-500/30 backdrop-blur-sm border border-pink-500/50 rounded-xl aspect-square flex items-center justify-center">
-                    <span className="text-2xl">3</span>
+                    <span className="text-lg md:text-2xl">3</span>
                   </div>
                 </div>
               )}
               
               {color === 'blue' && (
-                <div className="text-center">
-                  <div className="text-7xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+                <div className="text-center w-full max-w-full">
+                  <div className="text-4xl md:text-7xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2 break-all">
                     <LoopingCounter from={0} to={9999} duration={2000} formatFn={(n) => n.toLocaleString()} />
                   </div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider">Live Counter</div>
+                  <div className="text-xs md:text-sm text-gray-400 uppercase tracking-wider">Live Counter</div>
                 </div>
               )}
             </div>
           </div>
         </div>
         
-        <div className="flex-1">
-          <h3 className="text-5xl font-black mb-6 tracking-tight">{title}</h3>
-          <p className="text-xl text-gray-400 leading-relaxed">{description}</p>
+        <div className="flex-1 w-full">
+          <h3 className="text-3xl md:text-5xl font-black mb-4 md:mb-6 tracking-tight">{title}</h3>
+          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">{description}</p>
         </div>
       </div>
     </RevealOnScroll>
