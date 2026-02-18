@@ -24,13 +24,13 @@ export default function ShowcasePage() {
           <span className="font-semibold">Home</span>
         </a>
         <a
-          href="/demo"
+          href="/easy-scroll/about"
           className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-blue-600/90 backdrop-blur-md border border-blue-500/50 rounded-full hover:bg-blue-500/90 transition-all group shadow-xl text-sm md:text-base"
         >
           <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
           </svg>
-          <span className="font-semibold">Demo</span>
+          <span className="font-semibold">About</span>
         </a>
       </nav>
 
@@ -357,10 +357,10 @@ export default function ShowcasePage() {
                   View on npm
                 </a>
                 <a
-                  href="/demo"
+                  href="/easy-scroll/about"
                   className="px-8 py-3 bg-zinc-800 text-white rounded-lg font-semibold hover:bg-zinc-700 transition-colors border border-zinc-700"
                 >
-                  View Demo
+                  View About
                 </a>
               </div>
             </div>

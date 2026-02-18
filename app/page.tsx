@@ -7,7 +7,7 @@ export default function HomePage() {
   const router = useRouter();
   
   useEffect(() => {
-    router.push('/demo');
+    router.push('/easy-scroll/about');
   }, [router]);
 
   return null;
