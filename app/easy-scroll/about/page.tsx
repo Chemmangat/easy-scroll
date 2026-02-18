@@ -25,14 +25,14 @@ export default function DemoPage() {
           <span className="font-semibold">Home</span>
         </a>
         <a
-          href="/showcase"
+          href="/easy-scroll/demo"
           className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-purple-600/90 backdrop-blur-md border border-purple-500/50 rounded-full hover:bg-purple-500/90 transition-all group shadow-xl text-sm md:text-base"
         >
           <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
           </svg>
-          <span className="font-semibold">Showcase</span>
+          <span className="font-semibold">Demo</span>
         </a>
       </nav>
 
