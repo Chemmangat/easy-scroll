@@ -101,9 +101,10 @@ export default function DocsPage() {
                 transform transition-transform duration-300 ease-in-out
                 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                 lg:transform-none
+                pt-24 lg:pt-0
               `}
             >
-              <div className="h-full lg:h-auto bg-black lg:bg-transparent p-4 lg:p-0 pt-6 lg:pt-0">
+              <div className="h-full lg:h-auto bg-black lg:bg-transparent p-4 lg:p-0 lg:pt-0">
                 {/* Mobile Close Button */}
                 <div className="lg:hidden flex justify-between items-center mb-6">
                   <h2 className="text-xl font-bold text-white">Sections</h2>
