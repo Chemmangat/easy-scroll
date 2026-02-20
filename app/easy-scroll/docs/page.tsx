@@ -244,7 +244,7 @@ function Components() {
           <div className="mt-4 bg-zinc-950 border border-zinc-800 rounded-lg p-4">
             <h4 className="text-lg font-bold mb-2">Props:</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><code className="text-purple-400">color</code>: Color or gradient (default: '#8b5cf6')</li>
+              <li><code className="text-purple-400">color</code>: Color or gradient (default: &apos;#8b5cf6&apos;)</li>
               <li><code className="text-purple-400">height</code>: Height in pixels (default: 3)</li>
             </ul>
           </div>
@@ -364,7 +364,7 @@ function Playground() {
         <ul className="space-y-2 text-gray-300">
           <li>• Select an animation type from the dropdown</li>
           <li>• Adjust duration and delay with the sliders</li>
-          <li>• Click "Replay Animation" to see changes</li>
+          <li>• Click &quot;Replay Animation&quot; to see changes</li>
           <li>• Copy the generated code to use in your project</li>
         </ul>
       </div>
@@ -607,7 +607,7 @@ function MyComponent() {
             <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
               <h4 className="font-bold mb-2"><code className="text-purple-400">easing</code></h4>
               <p className="text-gray-400 text-sm">
-                CSS easing function. Examples: 'ease-out', 'ease-in-out', 'cubic-bezier(0.4, 0, 0.2, 1)'.
+                CSS easing function. Examples: &apos;ease-out&apos;, &apos;ease-in-out&apos;, &apos;cubic-bezier(0.4, 0, 0.2, 1)&apos;.
               </p>
             </div>
           </div>
@@ -657,7 +657,7 @@ function MyComponent() {
             <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
               <h4 className="font-bold mb-2">✓ Limit animations</h4>
               <p className="text-gray-300 text-sm">
-                Don't animate every element. Focus on key content for the best user experience.
+                Don&apos;t animate every element. Focus on key content for the best user experience.
               </p>
             </div>
           </div>
@@ -678,7 +678,7 @@ function Troubleshooting() {
           <h3 className="text-xl font-bold mb-3">Animations not working</h3>
           <div className="space-y-3 text-gray-300">
             <p><strong>Check browser support:</strong> Ensure your browser supports Intersection Observer API.</p>
-            <p><strong>Verify imports:</strong> Make sure you're importing from the correct package:</p>
+            <p><strong>Verify imports:</strong> Make sure you&apos;re importing from the correct package:</p>
             <CodeBlock code={`import { RevealOnScroll } from '@chemmangat/easy-scroll';`} />
             <p><strong>Check threshold:</strong> If threshold is too high, animations may not trigger. Try lowering it to 0.1.</p>
           </div>
@@ -695,7 +695,7 @@ function Troubleshooting() {
         <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
           <h3 className="text-xl font-bold mb-3">TypeScript errors</h3>
           <div className="space-y-3 text-gray-300">
-            <p><strong>Install types:</strong> The package includes TypeScript definitions. Ensure you're using TypeScript 4.0+.</p>
+            <p><strong>Install types:</strong> The package includes TypeScript definitions. Ensure you&apos;re using TypeScript 4.0+.</p>
             <p><strong>Import types:</strong> Import types explicitly if needed:</p>
             <CodeBlock code={`import type { AnimationType, ScrollAnimationOptions } from '@chemmangat/easy-scroll';`} />
           </div>
@@ -705,7 +705,7 @@ function Troubleshooting() {
           <h3 className="text-xl font-bold mb-3">Performance issues</h3>
           <div className="space-y-3 text-gray-300">
             <p><strong>Use once prop:</strong> Set <code className="text-purple-400">once={`{true}`}</code> to prevent re-animations.</p>
-            <p><strong>Limit animations:</strong> Don't animate every element on the page.</p>
+            <p><strong>Limit animations:</strong> Don&apos;t animate every element on the page.</p>
             <p><strong>Reduce duration:</strong> Shorter animations (400-600ms) feel snappier and perform better.</p>
           </div>
         </div>
@@ -713,7 +713,7 @@ function Troubleshooting() {
         <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
           <h3 className="text-xl font-bold mb-3">Next.js specific issues</h3>
           <div className="space-y-3 text-gray-300">
-            <p><strong>Use 'use client':</strong> Add 'use client' directive at the top of files using Easy Scroll:</p>
+            <p><strong>Use &apos;use client&apos;:</strong> Add &apos;use client&apos; directive at the top of files using Easy Scroll:</p>
             <CodeBlock code={`'use client';\n\nimport { RevealOnScroll } from '@chemmangat/easy-scroll';`} />
             <p><strong>SSR considerations:</strong> Animations only work client-side. Components will render without animations during SSR.</p>
           </div>
@@ -722,7 +722,7 @@ function Troubleshooting() {
         <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
           <h3 className="text-xl font-bold mb-3">Still having issues?</h3>
           <p className="text-gray-300 mb-4">
-            If you're still experiencing problems, please:
+            If you&apos;re still experiencing problems, please:
           </p>
           <ul className="space-y-2 text-gray-300">
             <li>• Check the GitHub issues for similar problems</li>

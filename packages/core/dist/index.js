@@ -44,6 +44,14 @@ var animationStyles = {
     initial: { opacity: 0, transform: "translateY(-40px)" },
     animate: { opacity: 1, transform: "translateY(0)" }
   },
+  fadeInLeft: {
+    initial: { opacity: 0, transform: "translateX(-40px)" },
+    animate: { opacity: 1, transform: "translateX(0)" }
+  },
+  fadeInRight: {
+    initial: { opacity: 0, transform: "translateX(40px)" },
+    animate: { opacity: 1, transform: "translateX(0)" }
+  },
   slideInLeft: {
     initial: { opacity: 0, transform: "translateX(-60px)" },
     animate: { opacity: 1, transform: "translateX(0)" }
@@ -51,6 +59,14 @@ var animationStyles = {
   slideInRight: {
     initial: { opacity: 0, transform: "translateX(60px)" },
     animate: { opacity: 1, transform: "translateX(0)" }
+  },
+  slideInUp: {
+    initial: { opacity: 0, transform: "translateY(60px)" },
+    animate: { opacity: 1, transform: "translateY(0)" }
+  },
+  slideInDown: {
+    initial: { opacity: 0, transform: "translateY(-60px)" },
+    animate: { opacity: 1, transform: "translateY(0)" }
   },
   scaleUp: {
     initial: { opacity: 0, transform: "scale(0.8)" },
@@ -64,9 +80,41 @@ var animationStyles = {
     initial: { opacity: 0, transform: "rotate(-10deg) scale(0.9)" },
     animate: { opacity: 1, transform: "rotate(0deg) scale(1)" }
   },
+  rotateInLeft: {
+    initial: { opacity: 0, transform: "rotate(-45deg) translateX(-20px)" },
+    animate: { opacity: 1, transform: "rotate(0deg) translateX(0)" }
+  },
+  rotateInRight: {
+    initial: { opacity: 0, transform: "rotate(45deg) translateX(20px)" },
+    animate: { opacity: 1, transform: "rotate(0deg) translateX(0)" }
+  },
   blurIn: {
     initial: { opacity: 0, filter: "blur(10px)" },
     animate: { opacity: 1, filter: "blur(0px)" }
+  },
+  flipIn: {
+    initial: { opacity: 0, transform: "perspective(400px) rotateY(90deg)" },
+    animate: { opacity: 1, transform: "perspective(400px) rotateY(0deg)" }
+  },
+  flipInX: {
+    initial: { opacity: 0, transform: "perspective(400px) rotateX(90deg)" },
+    animate: { opacity: 1, transform: "perspective(400px) rotateX(0deg)" }
+  },
+  flipInY: {
+    initial: { opacity: 0, transform: "perspective(400px) rotateY(90deg)" },
+    animate: { opacity: 1, transform: "perspective(400px) rotateY(0deg)" }
+  },
+  bounceIn: {
+    initial: { opacity: 0, transform: "scale(0.3)" },
+    animate: { opacity: 1, transform: "scale(1)" }
+  },
+  zoomIn: {
+    initial: { opacity: 0, transform: "scale(0.5)" },
+    animate: { opacity: 1, transform: "scale(1)" }
+  },
+  zoomOut: {
+    initial: { opacity: 0, transform: "scale(1.5)" },
+    animate: { opacity: 1, transform: "scale(1)" }
   }
 };
 function useScrollAnimation(animation, options = {}) {

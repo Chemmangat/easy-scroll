@@ -1,7 +1,7 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import React$1 from 'react';
 
-type AnimationType = 'fadeIn' | 'fadeInUp' | 'fadeInDown' | 'slideInLeft' | 'slideInRight' | 'scaleUp' | 'scaleDown' | 'rotateIn' | 'blurIn';
+type AnimationType = 'fadeIn' | 'fadeInUp' | 'fadeInDown' | 'fadeInLeft' | 'fadeInRight' | 'slideInLeft' | 'slideInRight' | 'slideInUp' | 'slideInDown' | 'scaleUp' | 'scaleDown' | 'rotateIn' | 'rotateInLeft' | 'rotateInRight' | 'blurIn' | 'flipIn' | 'flipInX' | 'flipInY' | 'bounceIn' | 'zoomIn' | 'zoomOut';
 interface ScrollAnimationOptions {
     delay?: number;
     duration?: number;
