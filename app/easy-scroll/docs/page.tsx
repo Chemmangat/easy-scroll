@@ -24,10 +24,10 @@ export default function DocsPage() {
   ];
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-black text-white h-screen flex flex-col overflow-hidden">
       <ScrollProgress color="linear-gradient(90deg, #8b5cf6, #ec4899)" height={3} />
 
-      {/* Navigation */}
+      {/* Fixed Navigation */}
       <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3 flex-wrap max-w-[calc(100vw-2rem)]">
         <a
           href="https://www.chemmangathari.in/"
@@ -52,8 +52,8 @@ export default function DocsPage() {
         </a>
       </nav>
 
-      {/* Header */}
-      <header className="pt-32 pb-16 px-6 text-center">
+      {/* Fixed Header */}
+      <header className="flex-shrink-0 pt-32 pb-8 px-6 text-center bg-black">
         <h1 className="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
           Documentation
         </h1>
@@ -62,36 +62,41 @@ export default function DocsPage() {
         </p>
       </header>
 
-      <div className="container mx-auto px-6 pb-24">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar */}
-          <aside className="lg:w-64 lg:sticky lg:top-24 h-fit">
-            <nav className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => setSelectedSection(section.id)}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all mb-2 ${
-                    selectedSection === section.id
-                      ? 'bg-purple-600 text-white'
-                      : 'hover:bg-zinc-800 text-gray-400'
-                  }`}
-                >
-                  {section.title}
-                </button>
-              ))}
-            </nav>
-          </aside>
+      {/* Scrollable Content Area */}
+      <div className="flex-1 overflow-hidden">
+        <div className="container mx-auto px-6 h-full">
+          <div className="flex flex-col lg:flex-row gap-8 h-full">
+            {/* Fixed Sidebar */}
+            <aside className="lg:w-64 flex-shrink-0">
+              <nav className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 lg:sticky lg:top-0">
+                {sections.map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => setSelectedSection(section.id)}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all mb-2 ${
+                      selectedSection === section.id
+                        ? 'bg-purple-600 text-white'
+                        : 'hover:bg-zinc-800 text-gray-400'
+                    }`}
+                  >
+                    {section.title}
+                  </button>
+                ))}
+              </nav>
+            </aside>
 
-          {/* Content */}
-          <div className="flex-1 bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8">
-            {selectedSection === 'getting-started' && <GettingStarted />}
-            {selectedSection === 'components' && <Components />}
-            {selectedSection === 'animations' && <Animations />}
-            {selectedSection === 'playground' && <Playground />}
-            {selectedSection === 'examples' && <Examples />}
-            {selectedSection === 'api' && <APIReference />}
-            {selectedSection === 'troubleshooting' && <Troubleshooting />}
+            {/* Scrollable Content */}
+            <div className="flex-1 overflow-y-auto pb-24">
+              <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8">
+                {selectedSection === 'getting-started' && <GettingStarted />}
+                {selectedSection === 'components' && <Components />}
+                {selectedSection === 'animations' && <Animations />}
+                {selectedSection === 'playground' && <Playground />}
+                {selectedSection === 'examples' && <Examples />}
+                {selectedSection === 'api' && <APIReference />}
+                {selectedSection === 'troubleshooting' && <Troubleshooting />}
+              </div>
+            </div>
           </div>
         </div>
       </div>
