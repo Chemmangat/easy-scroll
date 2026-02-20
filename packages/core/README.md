@@ -1,21 +1,21 @@
-# react-scroll-motion
+# @chemmangat/easy-scroll
 
 > Lightweight scroll-driven animations using native CSS Scroll Timeline API. Zero dependencies. Pure performance.
 
 [![No Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](tsconfig.json)
-[![Bundle Size](https://img.shields.io/badge/bundle%20size-%3C3KB-success.svg)](package.json)
+[![Bundle Size](https://img.shields.io/badge/bundle%20size-9.3KB-success.svg)](package.json)
 
 ## Installation
 
 ```bash
-npm install react-scroll-motion
+npm install @chemmangat/easy-scroll
 ```
 
 ## Quick Start
 
 ```tsx
-import { RevealOnScroll, ScrollProgress } from 'react-scroll-motion';
+import { RevealOnScroll, ScrollProgress } from '@chemmangat/easy-scroll';
 
 export default function Page() {
   return (
