@@ -86,7 +86,7 @@ export default function DocsPage() {
             </aside>
 
             {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto pb-24">
+            <div className="flex-1 overflow-y-auto pb-24 custom-scrollbar">
               <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8">
                 {selectedSection === 'getting-started' && <GettingStarted />}
                 {selectedSection === 'components' && <Components />}
