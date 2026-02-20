@@ -14,7 +14,7 @@ export default function DemoPage() {
       <ScrollProgress color="linear-gradient(90deg, #8b5cf6, #ec4899)" height={4} />
 
       {/* Navigation */}
-      <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3">
+      <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3 flex-wrap max-w-[calc(100vw-2rem)]">
         <a
           href="https://www.chemmangathari.in/"
           className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 rounded-full hover:border-purple-500/50 transition-all group shadow-xl text-sm md:text-base"
@@ -28,11 +28,16 @@ export default function DemoPage() {
           href="/easy-scroll/demo"
           className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-purple-600/90 backdrop-blur-md border border-purple-500/50 rounded-full hover:bg-purple-500/90 transition-all group shadow-xl text-sm md:text-base"
         >
-          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
           <span className="font-semibold">Demo</span>
+        </a>
+        <a
+          href="/easy-scroll/docs"
+          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-800/90 backdrop-blur-md border border-zinc-700 rounded-full hover:border-zinc-600 transition-all group shadow-xl text-sm md:text-base"
+        >
+          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <span className="font-semibold">Docs</span>
         </a>
       </nav>
 
@@ -163,12 +168,21 @@ export default function DemoPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-950/10 to-black" />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <RevealOnScroll animation="fadeInUp">
-            <h2 className="text-5xl md:text-6xl font-black text-center mb-20 tracking-tight">
+            <h2 className="text-5xl md:text-6xl font-black text-center mb-8 tracking-tight">
               Project Stats
             </h2>
+            <p className="text-center text-gray-400 text-lg mb-20 max-w-2xl mx-auto">
+              Real metrics from our growing community
+            </p>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
+            <StatsCard
+              label="npm Downloads"
+              value={<CountOnScroll from={0} to={79} duration={2000} />}
+              icon="📥"
+              highlight={true}
+            />
             <StatsCard
               label="Bundle Size"
               value={<CountOnScroll from={0} to={9.3} duration={2000} formatFn={(n) => `${n.toFixed(1)}KB`} />}
@@ -176,13 +190,8 @@ export default function DemoPage() {
             />
             <StatsCard
               label="Animation Types"
-              value={<CountOnScroll from={0} to={9} duration={2000} />}
+              value={<CountOnScroll from={0} to={21} duration={2000} />}
               icon="🎨"
-            />
-            <StatsCard
-              label="Components"
-              value={<CountOnScroll from={0} to={5} duration={2000} />}
-              icon="⚡"
             />
             <StatsCard
               label="Dependencies"
@@ -190,6 +199,15 @@ export default function DemoPage() {
               icon="🚀"
             />
           </div>
+
+          <RevealOnScroll animation="fadeInUp" delay={400}>
+            <div className="bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 border border-purple-500/30 rounded-2xl p-8 text-center max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-gray-200 mb-2">
+                <span className="font-bold text-purple-400">79 developers</span> are already using Easy Scroll in production
+              </p>
+              <p className="text-gray-400">Join the growing community building beautiful scroll experiences</p>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -220,8 +238,8 @@ export default function DemoPage() {
             />
             <FeatureCard
               icon="🎨"
-              title="9 Animation Types"
-              description="Fade, slide, scale, rotate, blur — all the essentials with smooth easing curves and full customization."
+              title="21 Animation Types"
+              description="Fade, slide, scale, rotate, blur, flip, zoom, bounce — all the essentials with smooth easing curves and full customization."
               gradient="from-purple-500/20 to-pink-500/20"
             />
             <FeatureCard
@@ -388,14 +406,24 @@ export default function DemoPage() {
   );
 }
 
-function StatsCard({ label, value, icon }: { label: string; value: React.ReactNode; icon: string }) {
+function StatsCard({ label, value, icon, highlight }: { label: string; value: React.ReactNode; icon: string; highlight?: boolean }) {
   return (
     <RevealOnScroll animation="scaleUp" duration={600}>
-      <div className="group relative bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-3xl p-4 md:p-8 text-center hover:border-purple-500/50 transition-all hover:scale-105 min-h-[180px] md:min-h-[220px] flex flex-col justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 rounded-3xl transition-all" />
+      <div className={`group relative bg-gradient-to-br rounded-3xl p-4 md:p-8 text-center transition-all hover:scale-105 min-h-[180px] md:min-h-[220px] flex flex-col justify-center ${
+        highlight 
+          ? 'from-purple-900/30 to-pink-900/30 border-2 border-purple-500/50 shadow-lg shadow-purple-500/20' 
+          : 'from-gray-900 to-black border border-gray-800 hover:border-purple-500/50'
+      }`}>
+        <div className={`absolute inset-0 rounded-3xl transition-all ${
+          highlight 
+            ? 'bg-gradient-to-br from-purple-500/10 to-pink-500/10' 
+            : 'bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10'
+        }`} />
         <div className="relative">
           <div className="text-4xl md:text-5xl mb-3 md:mb-4">{icon}</div>
-          <div className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 md:mb-3 break-words">
+          <div className={`text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r bg-clip-text text-transparent mb-2 md:mb-3 break-words ${
+            highlight ? 'from-purple-300 to-pink-300' : 'from-purple-400 to-pink-400'
+          }`}>
             {value}
           </div>
           <div className="text-gray-400 text-xs md:text-sm uppercase tracking-widest font-semibold break-words px-2">{label}</div>

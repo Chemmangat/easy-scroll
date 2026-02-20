@@ -13,7 +13,7 @@ export default function ShowcasePage() {
       <ScrollProgress color="linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)" height={3} />
 
       {/* Navigation */}
-      <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3">
+      <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3 flex-wrap max-w-[calc(100vw-2rem)]">
         <a
           href="https://www.chemmangathari.in/"
           className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 rounded-full hover:border-purple-500/50 transition-all group shadow-xl text-sm md:text-base"
@@ -27,10 +27,16 @@ export default function ShowcasePage() {
           href="/easy-scroll/about"
           className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-blue-600/90 backdrop-blur-md border border-blue-500/50 rounded-full hover:bg-blue-500/90 transition-all group shadow-xl text-sm md:text-base"
         >
-          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
-          </svg>
           <span className="font-semibold">About</span>
+        </a>
+        <a
+          href="/easy-scroll/docs"
+          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-800/90 backdrop-blur-md border border-zinc-700 rounded-full hover:border-zinc-600 transition-all group shadow-xl text-sm md:text-base"
+        >
+          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <span className="font-semibold">Docs</span>
         </a>
       </nav>
 
@@ -151,7 +157,7 @@ export default function ShowcasePage() {
             <RevealOnScroll animation="scaleUp" duration={600}>
               <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/20 rounded-2xl p-8 text-center h-40 flex flex-col justify-center">
                 <div className="text-5xl font-black text-blue-400 mb-2">
-                  <CountOnScroll from={0} to={500} duration={2000} />+
+                  <CountOnScroll from={0} to={79} duration={2000} />+
                 </div>
                 <p className="text-gray-400 uppercase text-sm tracking-wider">Downloads</p>
               </div>
@@ -203,7 +209,7 @@ export default function ShowcasePage() {
               <div className="text-4xl mb-4">🎨</div>
               <h3 className="text-2xl font-bold mb-3">Customizable</h3>
               <p className="text-gray-400 leading-relaxed">
-                9 animation types with full control over timing, easing, and delays
+                21 animation types with full control over timing, easing, and delays
               </p>
             </div>
 
@@ -262,7 +268,7 @@ export default function ShowcasePage() {
         <div className="max-w-6xl mx-auto">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              9 Animation Types
+              21 Animation Types
             </h2>
             <p className="text-center text-gray-400 text-lg mb-16">
               Choose the perfect animation for your content

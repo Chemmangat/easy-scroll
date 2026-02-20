@@ -6,12 +6,24 @@ export type AnimationType =
   | 'fadeIn'
   | 'fadeInUp'
   | 'fadeInDown'
+  | 'fadeInLeft'
+  | 'fadeInRight'
   | 'slideInLeft'
   | 'slideInRight'
+  | 'slideInUp'
+  | 'slideInDown'
   | 'scaleUp'
   | 'scaleDown'
   | 'rotateIn'
-  | 'blurIn';
+  | 'rotateInLeft'
+  | 'rotateInRight'
+  | 'blurIn'
+  | 'flipIn'
+  | 'flipInX'
+  | 'flipInY'
+  | 'bounceIn'
+  | 'zoomIn'
+  | 'zoomOut';
 
 export interface ScrollAnimationOptions {
   delay?: number;
@@ -40,6 +52,14 @@ const animationStyles: Record<AnimationType, { initial: React.CSSProperties; ani
     initial: { opacity: 0, transform: 'translateY(-40px)' },
     animate: { opacity: 1, transform: 'translateY(0)' },
   },
+  fadeInLeft: {
+    initial: { opacity: 0, transform: 'translateX(-40px)' },
+    animate: { opacity: 1, transform: 'translateX(0)' },
+  },
+  fadeInRight: {
+    initial: { opacity: 0, transform: 'translateX(40px)' },
+    animate: { opacity: 1, transform: 'translateX(0)' },
+  },
   slideInLeft: {
     initial: { opacity: 0, transform: 'translateX(-60px)' },
     animate: { opacity: 1, transform: 'translateX(0)' },
@@ -47,6 +67,14 @@ const animationStyles: Record<AnimationType, { initial: React.CSSProperties; ani
   slideInRight: {
     initial: { opacity: 0, transform: 'translateX(60px)' },
     animate: { opacity: 1, transform: 'translateX(0)' },
+  },
+  slideInUp: {
+    initial: { opacity: 0, transform: 'translateY(60px)' },
+    animate: { opacity: 1, transform: 'translateY(0)' },
+  },
+  slideInDown: {
+    initial: { opacity: 0, transform: 'translateY(-60px)' },
+    animate: { opacity: 1, transform: 'translateY(0)' },
   },
   scaleUp: {
     initial: { opacity: 0, transform: 'scale(0.8)' },
@@ -60,9 +88,41 @@ const animationStyles: Record<AnimationType, { initial: React.CSSProperties; ani
     initial: { opacity: 0, transform: 'rotate(-10deg) scale(0.9)' },
     animate: { opacity: 1, transform: 'rotate(0deg) scale(1)' },
   },
+  rotateInLeft: {
+    initial: { opacity: 0, transform: 'rotate(-45deg)' },
+    animate: { opacity: 1, transform: 'rotate(0deg)' },
+  },
+  rotateInRight: {
+    initial: { opacity: 0, transform: 'rotate(45deg)' },
+    animate: { opacity: 1, transform: 'rotate(0deg)' },
+  },
   blurIn: {
     initial: { opacity: 0, filter: 'blur(10px)' },
     animate: { opacity: 1, filter: 'blur(0px)' },
+  },
+  flipIn: {
+    initial: { opacity: 0, transform: 'perspective(400px) rotateY(90deg)' },
+    animate: { opacity: 1, transform: 'perspective(400px) rotateY(0deg)' },
+  },
+  flipInX: {
+    initial: { opacity: 0, transform: 'perspective(400px) rotateX(90deg)' },
+    animate: { opacity: 1, transform: 'perspective(400px) rotateX(0deg)' },
+  },
+  flipInY: {
+    initial: { opacity: 0, transform: 'perspective(400px) rotateY(90deg)' },
+    animate: { opacity: 1, transform: 'perspective(400px) rotateY(0deg)' },
+  },
+  bounceIn: {
+    initial: { opacity: 0, transform: 'scale(0.3)' },
+    animate: { opacity: 1, transform: 'scale(1)' },
+  },
+  zoomIn: {
+    initial: { opacity: 0, transform: 'scale(0.5)' },
+    animate: { opacity: 1, transform: 'scale(1)' },
+  },
+  zoomOut: {
+    initial: { opacity: 0, transform: 'scale(1.5)' },
+    animate: { opacity: 1, transform: 'scale(1)' },
   },
 };
 
@@ -93,6 +153,12 @@ export function useScrollAnimation(
     console.log('Setting up animation:', animation, 'for element:', element);
 
     const styles = animationStyles[animation];
+    
+    // Safety check: ensure animation type exists
+    if (!styles) {
+      console.error(`Animation type "${animation}" not found in animationStyles`);
+      return;
+    }
     
     // Apply initial styles
     Object.assign(element.style, styles.initial);
