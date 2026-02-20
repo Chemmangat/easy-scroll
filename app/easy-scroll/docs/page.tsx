@@ -12,6 +12,7 @@ import { useState } from 'react';
 
 export default function DocsPage() {
   const [selectedSection, setSelectedSection] = useState('getting-started');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const sections = [
     { id: 'getting-started', title: 'Getting Started' },
@@ -22,6 +23,11 @@ export default function DocsPage() {
     { id: 'api', title: 'API Reference' },
     { id: 'troubleshooting', title: 'Troubleshooting' },
   ];
+
+  const handleSectionChange = (sectionId: string) => {
+    setSelectedSection(sectionId);
+    setIsSidebarOpen(false); // Close sidebar on mobile after selection
+  };
 
   return (
     <main className="bg-black text-white h-screen flex flex-col overflow-hidden">
@@ -53,41 +59,85 @@ export default function DocsPage() {
       </nav>
 
       {/* Fixed Header */}
-      <header className="flex-shrink-0 pt-32 pb-8 px-6 text-center bg-black">
-        <h1 className="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+      <header className="flex-shrink-0 pt-24 md:pt-32 pb-6 md:pb-8 px-4 md:px-6 text-center bg-black">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-3 md:mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
           Documentation
         </h1>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+        <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
           Complete guide to @chemmangat/easy-scroll
         </p>
       </header>
 
+      {/* Mobile Menu Button */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-[90]">
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="flex items-center gap-2 px-6 py-4 bg-purple-600 hover:bg-purple-500 rounded-full shadow-2xl transition-all text-white font-semibold"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <span>Menu</span>
+        </button>
+      </div>
+
+      {/* Mobile Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[80]"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Scrollable Content Area */}
       <div className="flex-1 overflow-hidden">
-        <div className="container mx-auto px-6 h-full">
-          <div className="flex flex-col lg:flex-row gap-8 h-full">
-            {/* Fixed Sidebar */}
-            <aside className="lg:w-64 flex-shrink-0">
-              <nav className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 lg:sticky lg:top-0">
-                {sections.map((section) => (
+        <div className="container mx-auto px-4 md:px-6 h-full">
+          <div className="flex flex-col lg:flex-row gap-6 md:gap-8 h-full">
+            {/* Sidebar - Mobile Drawer / Desktop Fixed */}
+            <aside
+              className={`
+                fixed lg:relative inset-y-0 left-0 z-[85]
+                w-72 lg:w-64 flex-shrink-0
+                transform transition-transform duration-300 ease-in-out
+                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+                lg:transform-none
+              `}
+            >
+              <div className="h-full lg:h-auto bg-black lg:bg-transparent p-4 lg:p-0 pt-6 lg:pt-0">
+                {/* Mobile Close Button */}
+                <div className="lg:hidden flex justify-between items-center mb-6">
+                  <h2 className="text-xl font-bold text-white">Sections</h2>
                   <button
-                    key={section.id}
-                    onClick={() => setSelectedSection(section.id)}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all mb-2 ${
-                      selectedSection === section.id
-                        ? 'bg-purple-600 text-white'
-                        : 'hover:bg-zinc-800 text-gray-400'
-                    }`}
+                    onClick={() => setIsSidebarOpen(false)}
+                    className="p-2 hover:bg-zinc-800 rounded-lg transition-colors"
                   >
-                    {section.title}
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                   </button>
-                ))}
-              </nav>
+                </div>
+
+                <nav className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 overflow-y-auto max-h-[calc(100vh-8rem)] lg:max-h-none custom-scrollbar">
+                  {sections.map((section) => (
+                    <button
+                      key={section.id}
+                      onClick={() => handleSectionChange(section.id)}
+                      className={`w-full text-left px-4 py-3 rounded-lg transition-all mb-2 text-sm md:text-base ${
+                        selectedSection === section.id
+                          ? 'bg-purple-600 text-white'
+                          : 'hover:bg-zinc-800 text-gray-400'
+                      }`}
+                    >
+                      {section.title}
+                    </button>
+                  ))}
+                </nav>
+              </div>
             </aside>
 
             {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto pb-24 custom-scrollbar">
-              <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8">
+              <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 md:p-6 lg:p-8">
                 {selectedSection === 'getting-started' && <GettingStarted />}
                 {selectedSection === 'components' && <Components />}
                 {selectedSection === 'animations' && <Animations />}
