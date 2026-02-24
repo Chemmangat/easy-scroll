@@ -157,9 +157,9 @@ export default function ShowcasePage() {
             <RevealOnScroll animation="scaleUp" duration={600}>
               <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/20 rounded-2xl p-8 text-center h-40 flex flex-col justify-center">
                 <div className="text-5xl font-black text-blue-400 mb-2">
-                  <CountOnScroll from={0} to={79} duration={2000} />+
+                  <CountOnScroll from={0} to={370} duration={2000} />+
                 </div>
-                <p className="text-gray-400 uppercase text-sm tracking-wider">Downloads</p>
+                <p className="text-gray-400 uppercase text-sm tracking-wider">Downloads/Week</p>
               </div>
             </RevealOnScroll>
 

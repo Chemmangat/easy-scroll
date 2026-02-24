@@ -65,13 +65,35 @@ export default function DemoPage() {
           </RevealOnScroll>
           
           <RevealOnScroll animation="fadeInUp" delay={500} duration={800}>
-            <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
               Lightweight scroll-driven animations using the native Scroll Timeline API. 
               Pure performance, pure elegance.
             </p>
           </RevealOnScroll>
+
+          {/* Download Stats Badge */}
+          <RevealOnScroll animation="scaleUp" delay={600}>
+            <div className="inline-block mb-8">
+              <div className="relative bg-gradient-to-br from-purple-900/40 via-pink-900/30 to-blue-900/40 border border-purple-500/40 rounded-2xl px-6 py-4 overflow-hidden backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 animate-pulse" />
+                <div className="relative z-10 flex items-center gap-3">
+                  <div className="flex items-center gap-1">
+                    <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                      <CountOnScroll from={0} to={370} duration={2000} />
+                    </span>
+                    <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">+</span>
+                    <span className="text-sm md:text-base text-gray-400 ml-2">downloads/week</span>
+                  </div>
+                  <div className="hidden md:block w-px h-8 bg-gray-700" />
+                  <span className="hidden md:block text-sm text-gray-400">
+                    Thank you for the support 🙏
+                  </span>
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
           
-          <RevealOnScroll animation="scaleUp" delay={700}>
+          <RevealOnScroll animation="scaleUp" delay={800}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 onClick={() => document.getElementById('playground')?.scrollIntoView({ behavior: 'smooth' })}
@@ -169,19 +191,23 @@ export default function DemoPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <RevealOnScroll animation="fadeInUp">
             <h2 className="text-5xl md:text-6xl font-black text-center mb-8 tracking-tight">
-              Project Stats
+              By The Numbers
             </h2>
             <p className="text-center text-gray-400 text-lg mb-20 max-w-2xl mx-auto">
-              Real metrics from our growing community
+              Built for performance and simplicity
             </p>
           </RevealOnScroll>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
             <StatsCard
-              label="npm Downloads"
-              value={<CountOnScroll from={0} to={79} duration={2000} />}
+              label="Weekly Downloads"
+              value={
+                <div className="flex items-center gap-1">
+                  <CountOnScroll from={0} to={370} duration={2000} />
+                  <span>+</span>
+                </div>
+              }
               icon="📥"
-              highlight={true}
             />
             <StatsCard
               label="Bundle Size"
@@ -203,7 +229,7 @@ export default function DemoPage() {
           <RevealOnScroll animation="fadeInUp" delay={400}>
             <div className="bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 border border-purple-500/30 rounded-2xl p-8 text-center max-w-3xl mx-auto">
               <p className="text-xl md:text-2xl text-gray-200 mb-2">
-                <span className="font-bold text-purple-400">79 developers</span> are already using Easy Scroll in production
+                <span className="font-bold text-purple-400">370+ developers</span> are choosing Easy Scroll every week
               </p>
               <p className="text-gray-400">Join the growing community building beautiful scroll experiences</p>
             </div>
@@ -421,7 +447,7 @@ function StatsCard({ label, value, icon, highlight }: { label: string; value: Re
         }`} />
         <div className="relative">
           <div className="text-4xl md:text-5xl mb-3 md:mb-4">{icon}</div>
-          <div className={`text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r bg-clip-text text-transparent mb-2 md:mb-3 break-words ${
+          <div className={`text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r bg-clip-text text-transparent mb-2 md:mb-3 break-words flex items-center justify-center gap-1 ${
             highlight ? 'from-purple-300 to-pink-300' : 'from-purple-400 to-pink-400'
           }`}>
             {value}
