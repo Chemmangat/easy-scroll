@@ -1,13 +1,15 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import React$1 from 'react';
 
-type AnimationType = 'fadeIn' | 'fadeInUp' | 'fadeInDown' | 'fadeInLeft' | 'fadeInRight' | 'slideInLeft' | 'slideInRight' | 'slideInUp' | 'slideInDown' | 'scaleUp' | 'scaleDown' | 'rotateIn' | 'rotateInLeft' | 'rotateInRight' | 'blurIn' | 'flipIn' | 'flipInX' | 'flipInY' | 'bounceIn' | 'zoomIn' | 'zoomOut';
+type AnimationType = 'fadeIn' | 'fadeInUp' | 'fadeInDown' | 'fadeInLeft' | 'fadeInRight' | 'slideInLeft' | 'slideInRight' | 'slideInUp' | 'slideInDown' | 'scaleUp' | 'scaleDown' | 'rotateIn' | 'rotateInLeft' | 'rotateInRight' | 'blurIn' | 'flipIn' | 'flipInX' | 'flipInY' | 'bounceIn' | 'zoomIn' | 'zoomOut' | 'swingIn' | 'dropIn' | 'riseFade' | 'expandWidth' | 'shrinkIn' | 'tiltLeft' | 'tiltRight' | 'popIn' | 'glideUp' | 'glideDown' | 'glideLeft' | 'glideRight' | 'spiralIn' | 'stretchIn' | 'rollInLeft' | 'rollInRight';
 interface ScrollAnimationOptions {
     delay?: number;
     duration?: number;
     threshold?: number;
     once?: boolean;
     easing?: string;
+    onAnimationStart?: () => void;
+    onAnimationComplete?: () => void;
 }
 interface UseScrollAnimationReturn {
     ref: React.RefObject<HTMLElement>;
@@ -16,12 +18,15 @@ interface UseScrollAnimationReturn {
 }
 declare function useScrollAnimation(animation: AnimationType, options?: ScrollAnimationOptions): UseScrollAnimationReturn;
 
-interface RevealOnScrollProps extends ScrollAnimationOptions {
+type AsProp<T extends React$1.ElementType> = {
+    as?: T;
+};
+type RevealOnScrollProps<T extends React$1.ElementType = 'div'> = AsProp<T> & ScrollAnimationOptions & {
     animation: AnimationType;
     children: React$1.ReactNode;
     className?: string;
-}
-declare function RevealOnScroll({ animation, children, className, delay, duration, threshold, once, easing, }: RevealOnScrollProps): react_jsx_runtime.JSX.Element;
+} & Omit<React$1.ComponentPropsWithoutRef<T>, keyof AsProp<T> | keyof ScrollAnimationOptions | 'animation' | 'children' | 'className'>;
+declare function RevealOnScroll<T extends React$1.ElementType = 'div'>({ as, animation, children, className, delay, duration, threshold, once, easing, onAnimationStart, onAnimationComplete, ...rest }: RevealOnScrollProps<T>): react_jsx_runtime.JSX.Element;
 
 interface ScrollProgressProps {
     color?: string;
@@ -52,6 +57,6 @@ interface StaggerChildrenProps extends Omit<ScrollAnimationOptions, 'delay'> {
     children: React$1.ReactNode;
     className?: string;
 }
-declare function StaggerChildren({ animation, staggerDelay, children, className, duration, threshold, once, easing, }: StaggerChildrenProps): react_jsx_runtime.JSX.Element;
+declare function StaggerChildren({ animation, staggerDelay, children, className, duration, threshold, once, easing, onAnimationStart, onAnimationComplete, }: StaggerChildrenProps): react_jsx_runtime.JSX.Element;
 
-export { type AnimationType, CountOnScroll, ParallaxSection, RevealOnScroll, type ScrollAnimationOptions, ScrollProgress, StaggerChildren, useScrollAnimation };
+export { type AnimationType, CountOnScroll, ParallaxSection, RevealOnScroll, type ScrollAnimationOptions, ScrollProgress, StaggerChildren, type UseScrollAnimationReturn, useScrollAnimation };

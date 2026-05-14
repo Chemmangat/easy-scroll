@@ -22,19 +22,19 @@ var animationStyles = {
     animate: { opacity: 1, transform: "translateX(0)" }
   },
   slideInLeft: {
-    initial: { opacity: 0, transform: "translateX(-60px)" },
+    initial: { opacity: 0, transform: "translateX(-80px)" },
     animate: { opacity: 1, transform: "translateX(0)" }
   },
   slideInRight: {
-    initial: { opacity: 0, transform: "translateX(60px)" },
+    initial: { opacity: 0, transform: "translateX(80px)" },
     animate: { opacity: 1, transform: "translateX(0)" }
   },
   slideInUp: {
-    initial: { opacity: 0, transform: "translateY(60px)" },
+    initial: { opacity: 0, transform: "translateY(80px)" },
     animate: { opacity: 1, transform: "translateY(0)" }
   },
   slideInDown: {
-    initial: { opacity: 0, transform: "translateY(-60px)" },
+    initial: { opacity: 0, transform: "translateY(-80px)" },
     animate: { opacity: 1, transform: "translateY(0)" }
   },
   scaleUp: {
@@ -58,41 +58,111 @@ var animationStyles = {
     animate: { opacity: 1, transform: "rotate(0deg) translateX(0)" }
   },
   blurIn: {
-    initial: { opacity: 0, filter: "blur(10px)" },
+    initial: { opacity: 0, filter: "blur(12px)" },
     animate: { opacity: 1, filter: "blur(0px)" }
   },
   flipIn: {
-    initial: { opacity: 0, transform: "perspective(400px) rotateY(90deg)" },
-    animate: { opacity: 1, transform: "perspective(400px) rotateY(0deg)" }
+    initial: { opacity: 0, transform: "perspective(600px) rotateY(90deg)" },
+    animate: { opacity: 1, transform: "perspective(600px) rotateY(0deg)" }
   },
   flipInX: {
-    initial: { opacity: 0, transform: "perspective(400px) rotateX(90deg)" },
-    animate: { opacity: 1, transform: "perspective(400px) rotateX(0deg)" }
+    initial: { opacity: 0, transform: "perspective(600px) rotateX(90deg)" },
+    animate: { opacity: 1, transform: "perspective(600px) rotateX(0deg)" }
   },
   flipInY: {
-    initial: { opacity: 0, transform: "perspective(400px) rotateY(90deg)" },
-    animate: { opacity: 1, transform: "perspective(400px) rotateY(0deg)" }
+    initial: { opacity: 0, transform: "perspective(600px) rotateY(90deg)" },
+    animate: { opacity: 1, transform: "perspective(600px) rotateY(0deg)" }
   },
   bounceIn: {
     initial: { opacity: 0, transform: "scale(0.3)" },
     animate: { opacity: 1, transform: "scale(1)" }
   },
   zoomIn: {
-    initial: { opacity: 0, transform: "scale(0.5)" },
+    initial: { opacity: 0, transform: "scale(0.4)" },
     animate: { opacity: 1, transform: "scale(1)" }
   },
   zoomOut: {
-    initial: { opacity: 0, transform: "scale(1.5)" },
+    initial: { opacity: 0, transform: "scale(1.6)" },
     animate: { opacity: 1, transform: "scale(1)" }
+  },
+  swingIn: {
+    initial: { opacity: 0, transform: "rotate(-20deg)", transformOrigin: "top center" },
+    animate: { opacity: 1, transform: "rotate(0deg)", transformOrigin: "top center" }
+  },
+  dropIn: {
+    initial: { opacity: 0, transform: "translateY(-120px) scale(0.9)" },
+    animate: { opacity: 1, transform: "translateY(0) scale(1)" }
+  },
+  riseFade: {
+    initial: { opacity: 0, transform: "translateY(60px)", filter: "blur(4px)" },
+    animate: { opacity: 1, transform: "translateY(0)", filter: "blur(0px)" }
+  },
+  expandWidth: {
+    initial: { opacity: 0, transform: "scaleX(0)", transformOrigin: "left center" },
+    animate: { opacity: 1, transform: "scaleX(1)", transformOrigin: "left center" }
+  },
+  shrinkIn: {
+    initial: { opacity: 0, transform: "scale(1.8)" },
+    animate: { opacity: 1, transform: "scale(1)" }
+  },
+  tiltLeft: {
+    initial: { opacity: 0, transform: "rotate(6deg) translateX(20px)" },
+    animate: { opacity: 1, transform: "rotate(0deg) translateX(0)" }
+  },
+  tiltRight: {
+    initial: { opacity: 0, transform: "rotate(-6deg) translateX(-20px)" },
+    animate: { opacity: 1, transform: "rotate(0deg) translateX(0)" }
+  },
+  popIn: {
+    initial: { opacity: 0, transform: "scale(0.6) translateY(20px)" },
+    animate: { opacity: 1, transform: "scale(1) translateY(0)" }
+  },
+  glideUp: {
+    initial: { opacity: 0, transform: "translateY(100px)" },
+    animate: { opacity: 1, transform: "translateY(0)" }
+  },
+  glideDown: {
+    initial: { opacity: 0, transform: "translateY(-100px)" },
+    animate: { opacity: 1, transform: "translateY(0)" }
+  },
+  glideLeft: {
+    initial: { opacity: 0, transform: "translateX(-120px)" },
+    animate: { opacity: 1, transform: "translateX(0)" }
+  },
+  glideRight: {
+    initial: { opacity: 0, transform: "translateX(120px)" },
+    animate: { opacity: 1, transform: "translateX(0)" }
+  },
+  spiralIn: {
+    initial: { opacity: 0, transform: "rotate(-180deg) scale(0.3)" },
+    animate: { opacity: 1, transform: "rotate(0deg) scale(1)" }
+  },
+  stretchIn: {
+    initial: { opacity: 0, transform: "scaleY(0.2) scaleX(1.4)" },
+    animate: { opacity: 1, transform: "scaleY(1) scaleX(1)" }
+  },
+  rollInLeft: {
+    initial: { opacity: 0, transform: "translateX(-100px) rotate(-120deg)" },
+    animate: { opacity: 1, transform: "translateX(0) rotate(0deg)" }
+  },
+  rollInRight: {
+    initial: { opacity: 0, transform: "translateX(100px) rotate(120deg)" },
+    animate: { opacity: 1, transform: "translateX(0) rotate(0deg)" }
   }
 };
+function prefersReducedMotion() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 function useScrollAnimation(animation, options = {}) {
   const {
     delay = 0,
     duration = 600,
     threshold = 0.1,
     once = true,
-    easing = "ease-out"
+    easing = "ease-out",
+    onAnimationStart,
+    onAnimationComplete
   } = options;
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -100,33 +170,35 @@ function useScrollAnimation(animation, options = {}) {
   const hasAnimated = useRef(false);
   useEffect(() => {
     const element = ref.current;
-    if (!element) {
-      console.log("No element found for animation:", animation);
+    if (!element) return;
+    const reducedMotion = prefersReducedMotion();
+    const styles = animationStyles[animation] ?? animationStyles["fadeIn"];
+    if (reducedMotion) {
+      Object.assign(element.style, styles.animate);
+      setIsVisible(true);
       return;
     }
-    console.log("Setting up animation:", animation, "for element:", element);
-    const styles = animationStyles[animation];
     Object.assign(element.style, styles.initial);
-    console.log("Applied initial styles:", styles.initial);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log("Intersection observed:", {
-            animation,
-            isIntersecting: entry.isIntersecting,
-            hasAnimated: hasAnimated.current
-          });
           setIsVisible(entry.isIntersecting);
           if (entry.isIntersecting && (!once || !hasAnimated.current)) {
             hasAnimated.current = true;
-            console.log("Triggering animation:", animation, "with delay:", delay);
+            onAnimationStart?.();
             setTimeout(() => {
-              if (element) {
-                console.log("Applying animation styles:", styles.animate);
-                element.style.transition = `all ${duration}ms ${easing}`;
-                Object.assign(element.style, styles.animate);
-              }
+              if (!element) return;
+              element.style.transition = `all ${duration}ms ${easing}`;
+              Object.assign(element.style, styles.animate);
+              setTimeout(() => {
+                onAnimationComplete?.();
+              }, duration);
             }, delay);
+          }
+          if (!once && !entry.isIntersecting && hasAnimated.current) {
+            hasAnimated.current = false;
+            element.style.transition = "";
+            Object.assign(element.style, styles.initial);
           }
           if (entry.isIntersecting) {
             const rect = entry.boundingClientRect;
@@ -139,7 +211,6 @@ function useScrollAnimation(animation, options = {}) {
       { threshold }
     );
     observer.observe(element);
-    console.log("Observer attached for:", animation);
     const handleScroll = () => {
       if (!element) return;
       const rect = element.getBoundingClientRect();
@@ -149,17 +220,17 @@ function useScrollAnimation(animation, options = {}) {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      console.log("Cleaning up animation:", animation);
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [animation, delay, duration, easing, threshold, once]);
+  }, [animation, delay, duration, easing, threshold, once, onAnimationStart, onAnimationComplete]);
   return { ref, isVisible, progress };
 }
 
 // src/components/RevealOnScroll.tsx
 import { jsx } from "react/jsx-runtime";
 function RevealOnScroll({
+  as,
   animation,
   children,
   className = "",
@@ -167,16 +238,22 @@ function RevealOnScroll({
   duration,
   threshold,
   once,
-  easing
+  easing,
+  onAnimationStart,
+  onAnimationComplete,
+  ...rest
 }) {
   const { ref } = useScrollAnimation(animation, {
     delay,
     duration,
     threshold,
     once,
-    easing
+    easing,
+    onAnimationStart,
+    onAnimationComplete
   });
-  return /* @__PURE__ */ jsx("div", { ref, className, children });
+  const Tag = as ?? "div";
+  return /* @__PURE__ */ jsx(Tag, { ref, className, ...rest, children });
 }
 
 // src/components/ScrollProgress.tsx
@@ -330,7 +407,9 @@ function StaggerChildren({
   duration,
   threshold,
   once,
-  easing
+  easing,
+  onAnimationStart,
+  onAnimationComplete
 }) {
   const childArray = Children.toArray(children);
   return /* @__PURE__ */ jsx5("div", { className, children: childArray.map((child, index) => {
@@ -344,6 +423,8 @@ function StaggerChildren({
         threshold,
         once,
         easing,
+        onAnimationStart: index === 0 ? onAnimationStart : void 0,
+        onAnimationComplete: index === childArray.length - 1 ? onAnimationComplete : void 0,
         children: child
       },
       index
