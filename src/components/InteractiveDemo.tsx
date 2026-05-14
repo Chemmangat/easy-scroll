@@ -36,18 +36,19 @@ export function InteractiveDemo() {
   return (
     <div className="grid lg:grid-cols-2 gap-6">
       {/* Controls */}
-      <div className="space-y-6">
+      <div className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-xs font-mono text-white/40 uppercase tracking-widest mb-2">
             Animation Type
           </label>
           <select
             value={animation}
             onChange={(e) => setAnimation(e.target.value as AnimationType)}
-            className="w-full px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+            style={{ colorScheme: 'dark' }}
+            className="w-full px-4 py-2.5 bg-[#1a1a1a] border border-white/[0.1] rounded-lg text-white text-sm focus:border-white/30 focus:outline-none appearance-none cursor-pointer"
           >
             {animations.map((anim) => (
-              <option key={anim} value={anim}>
+              <option key={anim} value={anim} style={{ background: '#1a1a1a', color: '#fff' }}>
                 {anim}
               </option>
             ))}
@@ -55,9 +56,10 @@ export function InteractiveDemo() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
-            Duration: {duration}ms
-          </label>
+          <div className="flex items-center justify-between mb-2">
+            <label className="text-xs font-mono text-white/40 uppercase tracking-widest">Duration</label>
+            <span className="text-xs font-mono text-white/60">{duration}ms</span>
+          </div>
           <input
             type="range"
             min="200"
@@ -65,14 +67,15 @@ export function InteractiveDemo() {
             step="100"
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
-            className="w-full"
+            className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-0"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
-            Delay: {delay}ms
-          </label>
+          <div className="flex items-center justify-between mb-2">
+            <label className="text-xs font-mono text-white/40 uppercase tracking-widest">Delay</label>
+            <span className="text-xs font-mono text-white/60">{delay}ms</span>
+          </div>
           <input
             type="range"
             min="0"
@@ -80,33 +83,31 @@ export function InteractiveDemo() {
             step="50"
             value={delay}
             onChange={(e) => setDelay(Number(e.target.value))}
-            className="w-full"
+            className="w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-0"
           />
         </div>
 
         <button
           onClick={replay}
-          className="w-full px-6 py-3 bg-purple-600 hover:bg-purple-500 rounded-lg text-white font-semibold transition-colors"
+          className="w-full px-6 py-2.5 bg-white/[0.07] hover:bg-white/[0.12] border border-white/[0.1] rounded-lg text-white text-sm font-medium transition-colors"
         >
-          Replay Animation
+          Replay
         </button>
 
         <CodeBlock code={code} />
       </div>
 
       {/* Preview */}
-      <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 rounded-xl p-8 flex items-center justify-center min-h-[400px]">
+      <div className="bg-[#111] border border-white/[0.08] rounded-xl flex items-center justify-center min-h-[380px]">
         <RevealOnScroll
           key={key}
           animation={animation}
           duration={duration}
           delay={delay}
         >
-          <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl p-8 shadow-2xl">
-            <div className="text-white text-center">
-              <div className="text-3xl font-bold mb-2">Preview</div>
-              <div className="text-sm opacity-90">{animation}</div>
-            </div>
+          <div className="border border-white/[0.12] rounded-xl px-10 py-8 text-center bg-white/[0.03]">
+            <div className="text-2xl font-bold text-white mb-1">Preview</div>
+            <div className="text-sm text-white/40 font-mono">{animation}</div>
           </div>
         </RevealOnScroll>
       </div>
