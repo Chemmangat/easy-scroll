@@ -1,386 +1,145 @@
 'use client';
 
-import { 
-  RevealOnScroll, 
-  ScrollProgress, 
-  CountOnScroll, 
-  StaggerChildren
+import {
+  RevealOnScroll,
+  ScrollProgress,
+  CountOnScroll,
+  StaggerChildren,
+  ParallaxSection,
 } from '@chemmangat/easy-scroll';
 
-export default function ShowcasePage() {
+export default function DemoPage() {
   return (
-    <main className="bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-white overflow-x-hidden">
-      <ScrollProgress color="linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)" height={3} />
+    <main className="bg-[#0c0c0c] text-white min-h-screen font-sans">
+      <ScrollProgress color="#6d28d9" height={1} />
 
-      {/* Navigation */}
-      <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3 flex-wrap max-w-[calc(100vw-2rem)]">
-        <a
-          href="https://www.chemmangathari.in/"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 rounded-full hover:border-purple-500/50 transition-all group shadow-xl text-sm md:text-base"
-        >
-          <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span className="font-semibold">Home</span>
+      {/* Nav */}
+      <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-8 h-14 border-b border-white/[0.06] bg-[#0c0c0c]/90 backdrop-blur-sm">
+        <a href="/easy-scroll/about" className="text-sm text-white/50 hover:text-white transition-colors">
+          easy-scroll
         </a>
-        <a
-          href="/easy-scroll/about"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-blue-600/90 backdrop-blur-md border border-blue-500/50 rounded-full hover:bg-blue-500/90 transition-all group shadow-xl text-sm md:text-base"
-        >
-          <span className="font-semibold">About</span>
-        </a>
-        <a
-          href="/easy-scroll/docs"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-800/90 backdrop-blur-md border border-zinc-700 rounded-full hover:border-zinc-600 transition-all group shadow-xl text-sm md:text-base"
-        >
-          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <span className="font-semibold">Docs</span>
-        </a>
-      </nav>
+        <nav className="flex items-center gap-6">
+          <a href="/easy-scroll/about" className="text-sm text-white/40 hover:text-white/80 transition-colors">About</a>
+          <a href="/easy-scroll/docs" className="text-sm text-white/40 hover:text-white/80 transition-colors">Docs</a>
+          <a
+            href="https://www.npmjs.com/package/@chemmangat/easy-scroll"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-white/40 hover:text-white/80 transition-colors"
+          >
+            npm
+          </a>
+        </nav>
+      </header>
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative px-4 md:px-6 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      {/* Hero */}
+      <section className="pt-40 pb-24 px-8 max-w-3xl mx-auto">
+        <RevealOnScroll animation="fadeIn" duration={500}>
+          <p className="text-xs text-white/25 font-mono mb-6 tracking-wider">demo</p>
+        </RevealOnScroll>
+        <RevealOnScroll animation="fadeInUp" delay={60} duration={600}>
+          <h1 className="text-5xl font-bold tracking-tight leading-tight mb-5">
+            See it in action.
+          </h1>
+        </RevealOnScroll>
+        <RevealOnScroll animation="fadeIn" delay={140} duration={600}>
+          <p className="text-sm text-white/40 leading-relaxed max-w-sm">
+            Scroll through to watch each component do its thing. All powered by the published npm package.
+          </p>
+        </RevealOnScroll>
+      </section>
+
+      <div className="border-t border-white/[0.06]" />
+
+      {/* RevealOnScroll demo */}
+      <section className="py-24 px-8 max-w-3xl mx-auto">
+        <RevealOnScroll animation="fadeIn">
+          <p className="text-xs text-white/25 font-mono mb-10 tracking-wider">RevealOnScroll</p>
+        </RevealOnScroll>
+
+        <div className="space-y-4">
+          {[
+            { anim: 'fadeInUp', label: 'fadeInUp' },
+            { anim: 'slideInLeft', label: 'slideInLeft' },
+            { anim: 'scaleUp', label: 'scaleUp' },
+            { anim: 'blurIn', label: 'blurIn' },
+            { anim: 'flipIn', label: 'flipIn' },
+            { anim: 'riseFade', label: 'riseFade — new' },
+            { anim: 'popIn', label: 'popIn — new' },
+            { anim: 'spiralIn', label: 'spiralIn — new' },
+          ].map(({ anim, label }) => (
+            <RevealOnScroll key={anim} animation={anim as never} duration={600}>
+              <div className="flex items-center justify-between px-5 py-4 border border-white/[0.07] rounded-lg bg-white/[0.02]">
+                <code className="text-sm text-white/60 font-mono">{label}</code>
+                <div className="w-2 h-2 rounded-full bg-white/20" />
+              </div>
+            </RevealOnScroll>
+          ))}
         </div>
+      </section>
 
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <RevealOnScroll animation="fadeIn" duration={1000}>
-            <div className="inline-block mb-4 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
-              <span className="text-blue-400 text-sm font-medium">Powered by @chemmangat/easy-scroll</span>
+      <div className="border-t border-white/[0.06]" />
+
+      {/* StaggerChildren demo */}
+      <section className="py-24 px-8 max-w-3xl mx-auto">
+        <RevealOnScroll animation="fadeIn">
+          <p className="text-xs text-white/25 font-mono mb-10 tracking-wider">StaggerChildren</p>
+        </RevealOnScroll>
+
+        <StaggerChildren animation="fadeInUp" staggerDelay={90} className="grid grid-cols-3 gap-3">
+          {['one', 'two', 'three', 'four', 'five', 'six'].map((n) => (
+            <div key={n} className="aspect-square border border-white/[0.07] rounded-lg bg-white/[0.02] flex items-center justify-center">
+              <span className="text-xs text-white/30 font-mono">{n}</span>
             </div>
-          </RevealOnScroll>
+          ))}
+        </StaggerChildren>
+      </section>
 
-          <RevealOnScroll animation="fadeInUp" delay={200}>
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 tracking-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Showcase
-              </span>
-            </h1>
-          </RevealOnScroll>
+      <div className="border-t border-white/[0.06]" />
 
-          <RevealOnScroll animation="fadeInUp" delay={400}>
-            <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto">
-              A stunning demonstration of scroll-driven animations using the published npm package
+      {/* CountOnScroll demo */}
+      <section className="py-24 px-8 max-w-3xl mx-auto">
+        <RevealOnScroll animation="fadeIn">
+          <p className="text-xs text-white/25 font-mono mb-10 tracking-wider">CountOnScroll</p>
+        </RevealOnScroll>
+
+        <div className="grid grid-cols-3 gap-px bg-white/[0.06] rounded-xl overflow-hidden">
+          {[
+            { to: 370, suffix: '+', label: 'weekly installs' },
+            { to: 37, suffix: '', label: 'animations' },
+            { to: 0, suffix: '', label: 'dependencies' },
+          ].map((s) => (
+            <div key={s.label} className="bg-[#0c0c0c] px-6 py-8">
+              <div className="text-3xl font-bold text-white mb-1 tabular-nums">
+                <CountOnScroll from={0} to={s.to} duration={1600} />
+                {s.suffix}
+              </div>
+              <div className="text-xs text-white/25 font-mono">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="border-t border-white/[0.06]" />
+
+      {/* ParallaxSection demo */}
+      <ParallaxSection speed={0.4} className="py-32 border-b border-white/[0.06]">
+        <div className="max-w-3xl mx-auto px-8">
+          <RevealOnScroll animation="fadeIn" duration={800}>
+            <p className="text-xs text-white/25 font-mono mb-6 tracking-wider">ParallaxSection</p>
+            <p className="text-2xl font-light text-white/50 leading-relaxed max-w-sm">
+              This block moves at a different speed than the page scroll.
             </p>
           </RevealOnScroll>
-
-          <RevealOnScroll animation="scaleUp" delay={600}>
-            <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 md:px-6 font-mono text-sm md:text-base">
-              <span className="text-green-400">✓</span>
-              <span className="text-gray-400">npm i</span>
-              <span className="text-white break-all">@chemmangat/easy-scroll</span>
-            </div>
-          </RevealOnScroll>
         </div>
-      </section>
-
-      {/* Why Easy Scroll */}
-      <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-zinc-950 via-blue-950/10 to-zinc-950 overflow-hidden">
-        <div className="max-w-5xl mx-auto">
-          <RevealOnScroll animation="fadeInUp">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Why <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Easy Scroll</span>?
-              </h2>
-              <p className="text-lg text-gray-400">Three simple reasons</p>
-            </div>
-          </RevealOnScroll>
-
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <RevealOnScroll animation="fadeInUp" delay={100}>
-              <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
-                <div className="text-5xl mb-4">1️⃣</div>
-                <h3 className="text-2xl font-bold mb-3 text-blue-400">Easy to Install</h3>
-                <p className="text-gray-300 flex-grow">
-                  One command. No configuration files. No setup headaches.
-                </p>
-                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
-                  npm i @chemmangat/easy-scroll
-                </div>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="fadeInUp" delay={200}>
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
-                <div className="text-5xl mb-4">2️⃣</div>
-                <h3 className="text-2xl font-bold mb-3 text-purple-400">Easy to Use</h3>
-                <p className="text-gray-300 flex-grow">
-                  Simple React components. Intuitive props. Works immediately.
-                </p>
-                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400">
-                  &lt;RevealOnScroll animation=&quot;fadeIn&quot;&gt;
-                </div>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="fadeInUp" delay={300}>
-              <div className="bg-gradient-to-br from-pink-900/20 to-transparent border border-pink-500/30 rounded-2xl p-8 text-center h-full flex flex-col">
-                <div className="text-5xl mb-4">3️⃣</div>
-                <h3 className="text-2xl font-bold mb-3 text-pink-400">Easy on Performance</h3>
-                <p className="text-gray-300 flex-grow">
-                  Zero dependencies. Native browser APIs. Lightweight and fast.
-                </p>
-                <div className="mt-4 bg-black/50 rounded-lg p-3 font-mono text-sm text-gray-400 break-words">
-                  0 dependencies • 9.3KB
-                </div>
-              </div>
-            </RevealOnScroll>
-          </div>
-
-          <RevealOnScroll animation="scaleUp" delay={400}>
-            <div className="bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 border border-blue-500/20 rounded-2xl p-8 text-center">
-              <p className="text-xl md:text-2xl font-bold text-white leading-relaxed">
-                Easy to install. Easy to use. Easy on performance.
-              </p>
-              <p className="text-lg text-gray-400 mt-4">
-                That&apos;s why it&apos;s called <span className="text-blue-400 font-semibold">Easy Scroll</span>.
-              </p>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* Stats Counter */}
-      <section className="py-24 px-4 md:px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <RevealOnScroll animation="fadeInUp">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              Real-Time Counters
-            </h2>
-          </RevealOnScroll>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <RevealOnScroll animation="scaleUp" duration={600}>
-              <div className="bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-500/20 rounded-2xl p-8 text-center h-40 flex flex-col justify-center">
-                <div className="text-5xl font-black text-blue-400 mb-2">
-                  <CountOnScroll from={0} to={370} duration={2000} />+
-                </div>
-                <p className="text-gray-400 uppercase text-sm tracking-wider">Downloads/Week</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="scaleUp" duration={600} delay={100}>
-              <div className="bg-gradient-to-br from-purple-900/20 to-transparent border border-purple-500/20 rounded-2xl p-8 text-center h-40 flex flex-col justify-center">
-                <div className="text-5xl font-black text-purple-400 mb-2">
-                  <CountOnScroll from={0} to={150} duration={2000} />+
-                </div>
-                <p className="text-gray-400 uppercase text-sm tracking-wider">Stars</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="scaleUp" duration={600} delay={200}>
-              <div className="bg-gradient-to-br from-pink-900/20 to-transparent border border-pink-500/20 rounded-2xl p-8 text-center h-40 flex flex-col justify-center">
-                <div className="text-5xl font-black text-pink-400 mb-2">
-                  <CountOnScroll from={0} to={9} duration={1500} />
-                </div>
-                <p className="text-gray-400 uppercase text-sm tracking-wider">Animations</p>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Cards with Stagger */}
-      <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-transparent via-purple-950/5 to-transparent overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <RevealOnScroll animation="fadeInUp">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              Why Choose Easy Scroll?
-            </h2>
-            <p className="text-center text-gray-400 text-lg mb-16">
-              Built with performance and simplicity in mind
-            </p>
-          </RevealOnScroll>
-
-          <StaggerChildren animation="fadeInUp" staggerDelay={120} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 hover:border-blue-500/30 transition-all">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-2xl font-bold mb-3">Lightning Fast</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Uses native browser APIs for optimal performance without any overhead
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 hover:border-purple-500/30 transition-all">
-              <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-2xl font-bold mb-3">Customizable</h3>
-              <p className="text-gray-400 leading-relaxed">
-                21 animation types with full control over timing, easing, and delays
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 hover:border-pink-500/30 transition-all">
-              <div className="text-4xl mb-4">📦</div>
-              <h3 className="text-2xl font-bold mb-3">Zero Dependencies</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Lightweight package with no external dependencies to bloat your bundle
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 hover:border-green-500/30 transition-all">
-              <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-2xl font-bold mb-3">Easy to Use</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Simple React components that work out of the box with minimal setup
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 hover:border-yellow-500/30 transition-all">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="text-2xl font-bold mb-3">Responsive</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Works seamlessly across all devices and screen sizes
-              </p>
-            </div>
-
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 hover:border-cyan-500/30 transition-all">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-2xl font-bold mb-3">TypeScript</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Full TypeScript support with comprehensive type definitions
-              </p>
-            </div>
-          </StaggerChildren>
-        </div>
-      </section>
-
-      {/* Parallax Quote */}
-      <section className="py-32 my-24 bg-gradient-to-b from-transparent via-zinc-900/50 to-transparent overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <RevealOnScroll animation="fadeIn" duration={1000}>
-            <div className="space-y-6">
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
-              <blockquote className="text-3xl md:text-5xl font-light text-gray-200 leading-relaxed">
-                &ldquo;Smooth animations that bring your content to life&rdquo;
-              </blockquote>
-              <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* Animation Types */}
-      <section className="py-24 px-4 md:px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <RevealOnScroll animation="fadeInUp">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-              21 Animation Types
-            </h2>
-            <p className="text-center text-gray-400 text-lg mb-16">
-              Choose the perfect animation for your content
-            </p>
-          </RevealOnScroll>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <RevealOnScroll animation="fadeIn">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">fadeIn</div>
-                <p className="text-gray-400 text-sm">Smooth opacity transition</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="fadeInUp">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">fadeInUp</div>
-                <p className="text-gray-400 text-sm">Fade in from bottom</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="fadeInDown">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">fadeInDown</div>
-                <p className="text-gray-400 text-sm">Fade in from top</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="slideInLeft">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">slideInLeft</div>
-                <p className="text-gray-400 text-sm">Slide from left side</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="slideInRight">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">slideInRight</div>
-                <p className="text-gray-400 text-sm">Slide from right side</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="scaleUp">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">scaleUp</div>
-                <p className="text-gray-400 text-sm">Scale from small to normal</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="scaleDown">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">scaleDown</div>
-                <p className="text-gray-400 text-sm">Scale from large to normal</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="rotateIn">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">rotateIn</div>
-                <p className="text-gray-400 text-sm">Rotate while fading in</p>
-              </div>
-            </RevealOnScroll>
-
-            <RevealOnScroll animation="blurIn">
-              <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-2xl font-bold mb-2">blurIn</div>
-                <p className="text-gray-400 text-sm">Blur to sharp transition</p>
-              </div>
-            </RevealOnScroll>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-32 px-4 md:px-6 overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center">
-          <RevealOnScroll animation="scaleUp">
-            <div className="bg-gradient-to-br from-blue-900/30 via-purple-900/30 to-pink-900/30 border border-purple-500/30 rounded-3xl p-12">
-              <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                Ready to Get Started?
-              </h2>
-              <p className="text-xl text-gray-300 mb-8">
-                Install the package and start creating beautiful scroll animations
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href="https://www.npmjs.com/package/@chemmangat/easy-scroll"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-3 bg-white text-zinc-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  View on npm
-                </a>
-                <a
-                  href="/easy-scroll/about"
-                  className="px-8 py-3 bg-zinc-800 text-white rounded-lg font-semibold hover:bg-zinc-700 transition-colors border border-zinc-700"
-                >
-                  View About
-                </a>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      </ParallaxSection>
 
       {/* Footer */}
-      <footer className="py-12 px-4 md:px-6 border-t border-zinc-900 overflow-hidden">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-500">
-            Built with ❤️ using @chemmangat/easy-scroll
-          </p>
-        </div>
+      <footer className="px-8 py-8 max-w-3xl mx-auto flex items-center justify-between">
+        <span className="text-xs text-white/20 font-mono">easy-scroll v2.0.0</span>
+        <a href="/easy-scroll/docs" className="text-xs text-white/30 hover:text-white/60 transition-colors font-mono">
+          read the docs →
+        </a>
       </footer>
     </main>
   );

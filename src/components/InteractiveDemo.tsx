@@ -8,8 +8,13 @@ import { CodeBlock } from './CodeBlock';
 const animations: AnimationType[] = [
   'fadeIn', 'fadeInUp', 'fadeInDown', 'fadeInLeft', 'fadeInRight',
   'slideInLeft', 'slideInRight', 'slideInUp', 'slideInDown',
-  'scaleUp', 'scaleDown', 'rotateIn', 'rotateInLeft', 'rotateInRight',
-  'blurIn', 'flipIn', 'flipInX', 'flipInY', 'bounceIn', 'zoomIn', 'zoomOut'
+  'scaleUp', 'scaleDown', 'zoomIn', 'zoomOut', 'bounceIn',
+  'rotateIn', 'rotateInLeft', 'rotateInRight',
+  'blurIn', 'flipIn', 'flipInX', 'flipInY',
+  'swingIn', 'dropIn', 'riseFade', 'expandWidth', 'shrinkIn',
+  'tiltLeft', 'tiltRight', 'popIn',
+  'glideUp', 'glideDown', 'glideLeft', 'glideRight',
+  'spiralIn', 'stretchIn', 'rollInLeft', 'rollInRight',
 ];
 
 export function InteractiveDemo() {

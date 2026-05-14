@@ -1,5 +1,5 @@
 export { useScrollAnimation } from './hooks/useScrollAnimation';
-export type { AnimationType, ScrollAnimationOptions } from './hooks/useScrollAnimation';
+export type { AnimationType, ScrollAnimationOptions, UseScrollAnimationReturn } from './hooks/useScrollAnimation';
 
 export { RevealOnScroll } from './components/RevealOnScroll';
 export { ScrollProgress } from './components/ScrollProgress';

@@ -30,51 +30,35 @@ export default function DocsPage() {
   };
 
   return (
-    <main className="bg-black text-white h-screen flex flex-col overflow-hidden">
-      <ScrollProgress color="linear-gradient(90deg, #8b5cf6, #ec4899)" height={3} />
+    <main className="bg-[#0c0c0c] text-white h-screen flex flex-col overflow-hidden font-sans">
+      <ScrollProgress color="#6d28d9" height={1} />
 
-      {/* Fixed Navigation */}
-      <nav className="fixed top-4 left-4 md:top-6 md:left-6 z-[100] flex gap-2 md:gap-3 flex-wrap max-w-[calc(100vw-2rem)]">
-        <a
-          href="https://www.chemmangathari.in/"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 rounded-full hover:border-purple-500/50 transition-all group shadow-xl text-sm md:text-base"
-        >
-          <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span className="font-semibold">Home</span>
+      {/* Nav */}
+      <header className="flex-shrink-0 flex items-center justify-between px-8 h-14 border-b border-white/[0.06] bg-[#0c0c0c]">
+        <a href="/easy-scroll/about" className="text-sm text-white/50 hover:text-white transition-colors">
+          easy-scroll
         </a>
-        <a
-          href="/easy-scroll/about"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-blue-600/90 backdrop-blur-md border border-blue-500/50 rounded-full hover:bg-blue-500/90 transition-all group shadow-xl text-sm md:text-base"
-        >
-          <span className="font-semibold">About</span>
-        </a>
-        <a
-          href="/easy-scroll/demo"
-          className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 bg-purple-600/90 backdrop-blur-md border border-purple-500/50 rounded-full hover:bg-purple-500/90 transition-all group shadow-xl text-sm md:text-base"
-        >
-          <span className="font-semibold">Demo</span>
-        </a>
-      </nav>
-
-      {/* Fixed Header */}
-      <header className="flex-shrink-0 pt-24 md:pt-32 pb-6 md:pb-8 px-4 md:px-6 text-center bg-black">
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-3 md:mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-          Documentation
-        </h1>
-        <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
-          Complete guide to @chemmangat/easy-scroll
-        </p>
+        <nav className="flex items-center gap-6">
+          <a href="/easy-scroll/about" className="text-sm text-white/40 hover:text-white/80 transition-colors">About</a>
+          <a href="/easy-scroll/demo" className="text-sm text-white/40 hover:text-white/80 transition-colors">Demo</a>
+          <a
+            href="https://www.npmjs.com/package/@chemmangat/easy-scroll"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-white/40 hover:text-white/80 transition-colors"
+          >
+            npm
+          </a>
+        </nav>
       </header>
 
       {/* Mobile Menu Button */}
       <div className="lg:hidden fixed bottom-6 right-6 z-[90]">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="flex items-center gap-2 px-6 py-4 bg-purple-600 hover:bg-purple-500 rounded-full shadow-2xl transition-all text-white font-semibold"
+          className="flex items-center gap-2 px-4 py-3 bg-[#1a1a1a] border border-white/[0.08] rounded-lg transition-all text-white text-sm"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
           <span>Menu</span>
@@ -84,69 +68,61 @@ export default function DocsPage() {
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[80]"
+          className="lg:hidden fixed inset-0 bg-black/60 z-[80]"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Scrollable Content Area */}
       <div className="flex-1 overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6 h-full">
-          <div className="flex flex-col lg:flex-row gap-6 md:gap-8 h-full">
-            {/* Sidebar - Mobile Drawer / Desktop Fixed */}
-            <aside
-              className={`
-                fixed lg:relative inset-y-0 left-0 z-[85]
-                w-72 lg:w-64 flex-shrink-0
-                transform transition-transform duration-300 ease-in-out
-                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-                lg:transform-none
-                pt-24 lg:pt-0
-              `}
-            >
-              <div className="h-full lg:h-auto bg-black lg:bg-transparent p-4 lg:p-0 lg:pt-0">
-                {/* Mobile Close Button */}
-                <div className="lg:hidden flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-bold text-white">Sections</h2>
+        <div className="h-full flex">
+          {/* Sidebar */}
+          <aside
+            className={`
+              fixed lg:relative inset-y-0 left-0 z-[85]
+              w-56 flex-shrink-0 border-r border-white/[0.06]
+              transform transition-transform duration-200 ease-in-out
+              ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+              bg-[#0c0c0c]
+            `}
+          >
+            <div className="p-4 pt-6">
+              <div className="lg:hidden flex justify-between items-center mb-6 px-2">
+                <span className="text-xs text-white/30 font-mono tracking-wider">sections</span>
+                <button onClick={() => setIsSidebarOpen(false)} className="text-white/30 hover:text-white/70 transition-colors">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <nav className="space-y-0.5">
+                {sections.map((section) => (
                   <button
-                    onClick={() => setIsSidebarOpen(false)}
-                    className="p-2 hover:bg-zinc-800 rounded-lg transition-colors"
+                    key={section.id}
+                    onClick={() => handleSectionChange(section.id)}
+                    className={`w-full text-left px-3 py-2 rounded-md transition-colors text-sm ${
+                      selectedSection === section.id
+                        ? 'text-white bg-white/[0.06]'
+                        : 'text-white/35 hover:text-white/70 hover:bg-white/[0.03]'
+                    }`}
                   >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    {section.title}
                   </button>
-                </div>
+                ))}
+              </nav>
+            </div>
+          </aside>
 
-                <nav className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 overflow-y-auto max-h-[calc(100vh-8rem)] lg:max-h-none custom-scrollbar">
-                  {sections.map((section) => (
-                    <button
-                      key={section.id}
-                      onClick={() => handleSectionChange(section.id)}
-                      className={`w-full text-left px-4 py-3 rounded-lg transition-all mb-2 text-sm md:text-base ${
-                        selectedSection === section.id
-                          ? 'bg-purple-600 text-white'
-                          : 'hover:bg-zinc-800 text-gray-400'
-                      }`}
-                    >
-                      {section.title}
-                    </button>
-                  ))}
-                </nav>
-              </div>
-            </aside>
-
-            {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto pb-24 custom-scrollbar">
-              <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-4 md:p-6 lg:p-8">
-                {selectedSection === 'getting-started' && <GettingStarted />}
-                {selectedSection === 'components' && <Components />}
-                {selectedSection === 'animations' && <Animations />}
-                {selectedSection === 'playground' && <Playground />}
-                {selectedSection === 'examples' && <Examples />}
-                {selectedSection === 'api' && <APIReference />}
-                {selectedSection === 'troubleshooting' && <Troubleshooting />}
-              </div>
+          {/* Content */}
+          <div className="flex-1 overflow-y-auto custom-scrollbar">
+            <div className="max-w-3xl mx-auto px-8 py-10 pb-24">
+              {selectedSection === 'getting-started' && <GettingStarted />}
+              {selectedSection === 'components' && <Components />}
+              {selectedSection === 'animations' && <Animations />}
+              {selectedSection === 'playground' && <Playground />}
+              {selectedSection === 'examples' && <Examples />}
+              {selectedSection === 'api' && <APIReference />}
+              {selectedSection === 'troubleshooting' && <Troubleshooting />}
             </div>
           </div>
         </div>
@@ -357,48 +333,114 @@ function Components() {
 }
 
 function Animations() {
-  const animations = [
-    { name: 'fadeIn', desc: 'Smooth opacity transition' },
-    { name: 'fadeInUp', desc: 'Fade in from bottom' },
-    { name: 'fadeInDown', desc: 'Fade in from top' },
-    { name: 'fadeInLeft', desc: 'Fade in from left' },
-    { name: 'fadeInRight', desc: 'Fade in from right' },
-    { name: 'slideInLeft', desc: 'Slide from left side' },
-    { name: 'slideInRight', desc: 'Slide from right side' },
-    { name: 'slideInUp', desc: 'Slide from bottom' },
-    { name: 'slideInDown', desc: 'Slide from top' },
-    { name: 'scaleUp', desc: 'Scale from small to normal' },
-    { name: 'scaleDown', desc: 'Scale from large to normal' },
-    { name: 'rotateIn', desc: 'Rotate while fading in' },
-    { name: 'rotateInLeft', desc: 'Rotate from left' },
-    { name: 'rotateInRight', desc: 'Rotate from right' },
-    { name: 'blurIn', desc: 'Blur to sharp transition' },
-    { name: 'flipIn', desc: 'Flip animation' },
-    { name: 'flipInX', desc: 'Flip on X axis' },
-    { name: 'flipInY', desc: 'Flip on Y axis' },
-    { name: 'bounceIn', desc: 'Bounce effect' },
-    { name: 'zoomIn', desc: 'Zoom in effect' },
-    { name: 'zoomOut', desc: 'Zoom out effect' },
+  const groups = [
+    {
+      label: 'Fade',
+      color: 'text-blue-400',
+      items: [
+        { name: 'fadeIn', desc: 'Smooth opacity transition' },
+        { name: 'fadeInUp', desc: 'Fade in from bottom' },
+        { name: 'fadeInDown', desc: 'Fade in from top' },
+        { name: 'fadeInLeft', desc: 'Fade in from left' },
+        { name: 'fadeInRight', desc: 'Fade in from right' },
+      ],
+    },
+    {
+      label: 'Slide',
+      color: 'text-cyan-400',
+      items: [
+        { name: 'slideInLeft', desc: 'Slide from left (larger offset)' },
+        { name: 'slideInRight', desc: 'Slide from right (larger offset)' },
+        { name: 'slideInUp', desc: 'Slide from bottom (larger offset)' },
+        { name: 'slideInDown', desc: 'Slide from top (larger offset)' },
+      ],
+    },
+    {
+      label: 'Scale',
+      color: 'text-green-400',
+      items: [
+        { name: 'scaleUp', desc: 'Scale from small to normal' },
+        { name: 'scaleDown', desc: 'Scale from large to normal' },
+        { name: 'zoomIn', desc: 'Zoom in from very small' },
+        { name: 'zoomOut', desc: 'Zoom in from oversized' },
+        { name: 'bounceIn', desc: 'Bounce scale effect' },
+      ],
+    },
+    {
+      label: 'Rotate',
+      color: 'text-yellow-400',
+      items: [
+        { name: 'rotateIn', desc: 'Slight rotate + scale in' },
+        { name: 'rotateInLeft', desc: 'Rotate in from left angle' },
+        { name: 'rotateInRight', desc: 'Rotate in from right angle' },
+      ],
+    },
+    {
+      label: 'Special',
+      color: 'text-pink-400',
+      items: [
+        { name: 'blurIn', desc: 'Blur to sharp transition' },
+        { name: 'flipIn', desc: '3D flip on Y axis' },
+        { name: 'flipInX', desc: '3D flip on X axis' },
+        { name: 'flipInY', desc: '3D flip on Y axis (alias)' },
+      ],
+    },
+    {
+      label: 'New in 2.0',
+      color: 'text-purple-400',
+      badge: true,
+      items: [
+        { name: 'swingIn', desc: 'Pendulum swing from top' },
+        { name: 'dropIn', desc: 'Drop from above with scale' },
+        { name: 'riseFade', desc: 'Rise up with blur fade' },
+        { name: 'expandWidth', desc: 'Expand from left edge' },
+        { name: 'shrinkIn', desc: 'Shrink from oversized' },
+        { name: 'tiltLeft', desc: 'Tilt and slide from right' },
+        { name: 'tiltRight', desc: 'Tilt and slide from left' },
+        { name: 'popIn', desc: 'Pop up with scale + translate' },
+        { name: 'glideUp', desc: 'Long glide from bottom' },
+        { name: 'glideDown', desc: 'Long glide from top' },
+        { name: 'glideLeft', desc: 'Long glide from left' },
+        { name: 'glideRight', desc: 'Long glide from right' },
+        { name: 'spiralIn', desc: 'Full rotation + scale in' },
+        { name: 'stretchIn', desc: 'Stretch from flat to normal' },
+        { name: 'rollInLeft', desc: 'Roll in from left with rotation' },
+        { name: 'rollInRight', desc: 'Roll in from right with rotation' },
+      ],
+    },
   ];
 
   return (
     <div className="prose prose-invert max-w-none">
-      <h2 className="text-4xl font-bold mb-6">Animation Types</h2>
-      <p className="text-gray-400 mb-8">21 built-in animation types to choose from.</p>
-      
-      <div className="grid md:grid-cols-2 gap-4">
-        {animations.map((anim) => (
-          <div key={anim.name} className="bg-black/50 border border-zinc-800 rounded-lg p-4 hover:border-purple-500/30 transition-all">
-            <code className="text-purple-400 text-lg font-bold">{anim.name}</code>
-            <p className="text-gray-400 text-sm mt-2">{anim.desc}</p>
+      <h2 className="text-4xl font-bold mb-2">Animation Types</h2>
+      <p className="text-gray-400 mb-8">37 built-in animations across 6 categories. 16 new in v2.0.</p>
+
+      <div className="space-y-8">
+        {groups.map((group) => (
+          <div key={group.label}>
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-sm font-semibold text-white/60 font-mono tracking-wider uppercase">{group.label}</h3>
+              {group.badge && (
+                <span className="text-[10px] font-mono text-white/30 border border-white/[0.08] px-1.5 py-0.5 rounded">
+                  new
+                </span>
+              )}
+            </div>
+            <div className="grid md:grid-cols-2 gap-2">
+              {group.items.map((anim) => (
+                <div key={anim.name} className="border border-white/[0.06] rounded-lg p-3 hover:border-white/[0.12] transition-all bg-white/[0.01]">
+                  <code className="text-white/70 text-sm font-mono">{anim.name}</code>
+                  <p className="text-white/30 text-xs mt-1">{anim.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-8 bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
-        <h3 className="text-xl font-bold mb-2">💡 Pro Tip</h3>
-        <p className="text-gray-300">
-          Try different animations in the Interactive Playground to see them in action and find the perfect fit for your design.
+      <div className="mt-8 border border-white/[0.07] rounded-lg p-5">
+        <p className="text-white/40 text-sm">
+          Try all 37 animations in the Interactive Playground. <code className="text-white/60 font-mono text-xs">riseFade</code>, <code className="text-white/60 font-mono text-xs">popIn</code>, and <code className="text-white/60 font-mono text-xs">spiralIn</code> are worth checking out.
         </p>
       </div>
     </div>
@@ -410,19 +452,13 @@ function Playground() {
     <div className="prose prose-invert max-w-none">
       <h2 className="text-4xl font-bold mb-6">Interactive Playground</h2>
       <p className="text-gray-400 mb-8">
-        Experiment with all 21 animations and adjust parameters in real-time.
+        Experiment with all 37 animations and adjust parameters in real-time.
       </p>
       
       <InteractiveDemo />
 
-      <div className="mt-8 bg-purple-900/20 border border-purple-500/30 rounded-lg p-6">
-        <h3 className="text-xl font-bold mb-2">🎮 How to Use</h3>
-        <ul className="space-y-2 text-gray-300">
-          <li>• Select an animation type from the dropdown</li>
-          <li>• Adjust duration and delay with the sliders</li>
-          <li>• Click &quot;Replay Animation&quot; to see changes</li>
-          <li>• Copy the generated code to use in your project</li>
-        </ul>
+      <div className="mt-8 border border-white/[0.07] rounded-lg p-5">
+        <p className="text-white/40 text-sm">Select an animation, adjust duration and delay, click Replay to preview, then copy the generated code.</p>
       </div>
     </div>
   );
@@ -589,34 +625,53 @@ function Examples() {
 
 function APIReference() {
   const optionsCode = `interface ScrollAnimationOptions {
-  delay?: number;        // Default: 0
-  duration?: number;     // Default: 600
-  threshold?: number;    // Default: 0.1
-  once?: boolean;        // Default: true
-  easing?: string;       // Default: 'ease-out'
+  delay?: number;           // Default: 0
+  duration?: number;        // Default: 600
+  threshold?: number;       // Default: 0.1
+  once?: boolean;           // Default: true
+  easing?: string;          // Default: 'ease-out'
+  onAnimationStart?: () => void;
+  onAnimationComplete?: () => void;
 }`;
 
   const animationTypes = `type AnimationType =
+  // Fade (5)
   | 'fadeIn' | 'fadeInUp' | 'fadeInDown' | 'fadeInLeft' | 'fadeInRight'
+  // Slide (4)
   | 'slideInLeft' | 'slideInRight' | 'slideInUp' | 'slideInDown'
-  | 'scaleUp' | 'scaleDown' | 'rotateIn' | 'rotateInLeft' | 'rotateInRight'
-  | 'blurIn' | 'flipIn' | 'flipInX' | 'flipInY' | 'bounceIn' | 'zoomIn' | 'zoomOut';`;
+  // Scale (5)
+  | 'scaleUp' | 'scaleDown' | 'zoomIn' | 'zoomOut' | 'bounceIn'
+  // Rotate (3)
+  | 'rotateIn' | 'rotateInLeft' | 'rotateInRight'
+  // Special (4)
+  | 'blurIn' | 'flipIn' | 'flipInX' | 'flipInY'
+  // New in 2.0 (16)
+  | 'swingIn' | 'dropIn' | 'riseFade' | 'expandWidth' | 'shrinkIn'
+  | 'tiltLeft' | 'tiltRight' | 'popIn'
+  | 'glideUp' | 'glideDown' | 'glideLeft' | 'glideRight'
+  | 'spiralIn' | 'stretchIn' | 'rollInLeft' | 'rollInRight';`;
 
   const hookCode = `import { useScrollAnimation } from '@chemmangat/easy-scroll';
 
 function MyComponent() {
-  const { ref, isVisible } = useScrollAnimation({
-    animation: 'fadeInUp',
+  const { ref, isVisible, progress } = useScrollAnimation('riseFade', {
     duration: 800,
-    threshold: 0.2
+    threshold: 0.2,
+    onAnimationStart: () => console.log('started'),
+    onAnimationComplete: () => console.log('done'),
   });
 
-  return (
-    <div ref={ref}>
-      {isVisible ? 'Visible!' : 'Not visible'}
-    </div>
-  );
+  return <div ref={ref}>Progress: {Math.round(progress * 100)}%</div>;
 }`;
+
+  const asPropCode = `// Render as any HTML element — no forced <div> wrapper
+<RevealOnScroll as="section" animation="fadeInUp">
+  <h2>Section heading</h2>
+</RevealOnScroll>
+
+<RevealOnScroll as="li" animation="slideInLeft">
+  <span>List item</span>
+</RevealOnScroll>`;
 
   return (
     <div className="prose prose-invert max-w-none">
@@ -631,84 +686,72 @@ function MyComponent() {
           </p>
           <CodeBlock code={optionsCode} language="typescript" />
           
-          <div className="mt-4 space-y-3">
-            <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
-              <h4 className="font-bold mb-2"><code className="text-purple-400">delay</code></h4>
-              <p className="text-gray-400 text-sm">
-                Delay before animation starts in milliseconds. Useful for creating staggered effects.
-              </p>
-            </div>
-            
-            <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
-              <h4 className="font-bold mb-2"><code className="text-purple-400">duration</code></h4>
-              <p className="text-gray-400 text-sm">
-                Animation duration in milliseconds. Controls how long the animation takes to complete.
-              </p>
-            </div>
-            
-            <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
-              <h4 className="font-bold mb-2"><code className="text-purple-400">threshold</code></h4>
-              <p className="text-gray-400 text-sm">
-                Intersection Observer threshold (0-1). Determines how much of the element must be visible before animating.
-              </p>
-            </div>
-            
-            <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
-              <h4 className="font-bold mb-2"><code className="text-purple-400">once</code></h4>
-              <p className="text-gray-400 text-sm">
-                If true, animation only plays once. If false, animation plays every time element enters viewport.
-              </p>
-            </div>
-            
-            <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
-              <h4 className="font-bold mb-2"><code className="text-purple-400">easing</code></h4>
-              <p className="text-gray-400 text-sm">
-                CSS easing function. Examples: &apos;ease-out&apos;, &apos;ease-in-out&apos;, &apos;cubic-bezier(0.4, 0, 0.2, 1)&apos;.
-              </p>
-            </div>
+          <div className="mt-4 space-y-2">
+            {[
+              { prop: 'delay', desc: 'Delay before animation starts in ms.' },
+              { prop: 'duration', desc: 'Animation duration in ms.' },
+              { prop: 'threshold', desc: 'IntersectionObserver threshold 0–1. How much of the element must be visible.' },
+              { prop: 'once', desc: 'If true, plays once. If false, replays every time the element enters the viewport.' },
+              { prop: 'easing', desc: "CSS easing function. e.g. 'ease-out', 'cubic-bezier(0.4, 0, 0.2, 1)'." },
+              { prop: 'onAnimationStart', desc: 'Callback fired when the animation begins.' },
+              { prop: 'onAnimationComplete', desc: 'Callback fired when the animation finishes.' },
+            ].map(({ prop, desc }) => (
+              <div key={prop} className="border border-white/[0.06] rounded-lg p-3 flex gap-4">
+                <code className="text-white/60 font-mono text-xs shrink-0 pt-0.5">{prop}</code>
+                <p className="text-white/30 text-xs leading-relaxed">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div>
           <h3 className="text-2xl font-bold mb-3">AnimationType</h3>
-          <p className="text-gray-400 mb-4">
-            All available animation types as a TypeScript union type.
-          </p>
+          <p className="text-white/40 text-sm mb-4">All 37 animation types as a TypeScript union type.</p>
           <CodeBlock code={animationTypes} language="typescript" />
         </div>
 
         <div>
+          <h3 className="text-2xl font-bold mb-3">Polymorphic <code className="text-white/60 font-mono text-base">as</code> prop</h3>
+          <p className="text-white/40 text-sm mb-4">
+            Render RevealOnScroll as any HTML element. No forced div wrapper.
+          </p>
+          <CodeBlock code={asPropCode} />
+        </div>
+
+        <div>
           <h3 className="text-2xl font-bold mb-3">useScrollAnimation Hook</h3>
-          <p className="text-gray-400 mb-4">
+          <p className="text-white/40 text-sm mb-4">
             Low-level hook for custom scroll animation implementations.
           </p>
           <CodeBlock code={hookCode} />
-          
-          <div className="mt-4 bg-zinc-950 border border-zinc-800 rounded-lg p-4">
-            <h4 className="text-lg font-bold mb-2">Returns:</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><code className="text-purple-400">ref</code>: React ref to attach to your element</li>
-              <li><code className="text-purple-400">isVisible</code>: Boolean indicating if element is in viewport</li>
-            </ul>
+
+          <div className="mt-4 border border-white/[0.06] rounded-lg p-4 space-y-2">
+            {[
+              { r: 'ref', d: 'Attach to your element.' },
+              { r: 'isVisible', d: 'Boolean — whether the element is in the viewport.' },
+              { r: 'progress', d: 'Number 0–1 — scroll progress relative to the element.' },
+            ].map(({ r, d }) => (
+              <div key={r} className="flex gap-4">
+                <code className="text-white/60 font-mono text-xs shrink-0 pt-0.5">{r}</code>
+                <p className="text-white/30 text-xs">{d}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div>
-          <h3 className="text-2xl font-bold mb-3">Performance Tips</h3>
-          <div className="space-y-3">
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-              <h4 className="font-bold mb-2">✓ Use <code className="text-purple-400">once={`{true}`}</code></h4>
-              <p className="text-gray-300 text-sm">
-                For better performance, set once to true so animations only run once.
-              </p>
-            </div>
-            
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-              <h4 className="font-bold mb-2">✓ Adjust threshold</h4>
-              <p className="text-gray-300 text-sm">
-                Lower threshold values (0.1) trigger animations earlier, higher values (0.5) wait until more of the element is visible.
-              </p>
-            </div>
+          <h3 className="text-2xl font-bold mb-3">Performance tips</h3>
+          <div className="space-y-2">
+            {[
+              { tip: 'once={true}', desc: 'Animations only run once — better for performance.' },
+              { tip: 'threshold', desc: 'Lower values (0.1) trigger earlier, higher (0.5) wait for more visibility.' },
+              { tip: 'Limit scope', desc: "Don't animate every element. Focus on content that benefits from it." },
+            ].map(({ tip, desc }) => (
+              <div key={tip} className="border border-white/[0.06] rounded-lg p-3 flex gap-4">
+                <code className="text-white/60 font-mono text-xs shrink-0 pt-0.5">{tip}</code>
+                <p className="text-white/30 text-xs leading-relaxed">{desc}</p>
+              </div>
+            ))}
             
             <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
               <h4 className="font-bold mb-2">✓ Limit animations</h4>
@@ -727,65 +770,37 @@ function Troubleshooting() {
   return (
     <div className="prose prose-invert max-w-none">
       <h2 className="text-4xl font-bold mb-6">Troubleshooting</h2>
-      <p className="text-gray-400 mb-8">Common issues and solutions.</p>
-      
-      <div className="space-y-6">
-        <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-3">Animations not working</h3>
-          <div className="space-y-3 text-gray-300">
-            <p><strong>Check browser support:</strong> Ensure your browser supports Intersection Observer API.</p>
-            <p><strong>Verify imports:</strong> Make sure you&apos;re importing from the correct package:</p>
-            <CodeBlock code={`import { RevealOnScroll } from '@chemmangat/easy-scroll';`} />
-            <p><strong>Check threshold:</strong> If threshold is too high, animations may not trigger. Try lowering it to 0.1.</p>
-          </div>
-        </div>
+      <p className="text-white/40 text-sm mb-8">Common issues and how to fix them.</p>
 
-        <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-3">Animations triggering too early/late</h3>
-          <div className="space-y-3 text-gray-300">
-            <p><strong>Adjust threshold:</strong> Control when animations trigger by adjusting the threshold prop:</p>
-            <CodeBlock code={`<RevealOnScroll threshold={0.3}> // Triggers when 30% visible`} />
+      <div className="space-y-4">
+        {[
+          {
+            q: 'Animations not working',
+            a: "Check that you're importing from '@chemmangat/easy-scroll' and that the component is rendered client-side. Add 'use client' at the top of the file in Next.js.",
+            code: `'use client';\nimport { RevealOnScroll } from '@chemmangat/easy-scroll';`,
+          },
+          {
+            q: 'Animations trigger too early or too late',
+            a: 'Adjust the threshold prop. Lower values (0.1) trigger sooner, higher values (0.5) wait for more of the element to be visible.',
+            code: `<RevealOnScroll threshold={0.3}>`,
+          },
+          {
+            q: 'TypeScript errors on AnimationType',
+            a: 'Import the type explicitly.',
+            code: `import type { AnimationType } from '@chemmangat/easy-scroll';`,
+          },
+          {
+            q: 'Performance feels slow',
+            a: "Set once={true} (default), limit how many elements you animate, and keep duration between 400–700ms.",
+            code: null,
+          },
+        ].map(({ q, a, code }) => (
+          <div key={q} className="border border-white/[0.06] rounded-lg p-5 space-y-3">
+            <h3 className="text-sm font-semibold text-white">{q}</h3>
+            <p className="text-white/40 text-sm leading-relaxed">{a}</p>
+            {code && <CodeBlock code={code} />}
           </div>
-        </div>
-
-        <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-3">TypeScript errors</h3>
-          <div className="space-y-3 text-gray-300">
-            <p><strong>Install types:</strong> The package includes TypeScript definitions. Ensure you&apos;re using TypeScript 4.0+.</p>
-            <p><strong>Import types:</strong> Import types explicitly if needed:</p>
-            <CodeBlock code={`import type { AnimationType, ScrollAnimationOptions } from '@chemmangat/easy-scroll';`} />
-          </div>
-        </div>
-
-        <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-3">Performance issues</h3>
-          <div className="space-y-3 text-gray-300">
-            <p><strong>Use once prop:</strong> Set <code className="text-purple-400">once={`{true}`}</code> to prevent re-animations.</p>
-            <p><strong>Limit animations:</strong> Don&apos;t animate every element on the page.</p>
-            <p><strong>Reduce duration:</strong> Shorter animations (400-600ms) feel snappier and perform better.</p>
-          </div>
-        </div>
-
-        <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-3">Next.js specific issues</h3>
-          <div className="space-y-3 text-gray-300">
-            <p><strong>Use &apos;use client&apos;:</strong> Add &apos;use client&apos; directive at the top of files using Easy Scroll:</p>
-            <CodeBlock code={`'use client';\n\nimport { RevealOnScroll } from '@chemmangat/easy-scroll';`} />
-            <p><strong>SSR considerations:</strong> Animations only work client-side. Components will render without animations during SSR.</p>
-          </div>
-        </div>
-
-        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
-          <h3 className="text-xl font-bold mb-3">Still having issues?</h3>
-          <p className="text-gray-300 mb-4">
-            If you&apos;re still experiencing problems, please:
-          </p>
-          <ul className="space-y-2 text-gray-300">
-            <li>• Check the GitHub issues for similar problems</li>
-            <li>• Create a minimal reproduction on CodeSandbox</li>
-            <li>• Open a new issue with detailed information</li>
-          </ul>
-        </div>
+        ))}
       </div>
     </div>
   );

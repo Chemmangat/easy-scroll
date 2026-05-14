@@ -20,6 +20,8 @@ export function StaggerChildren({
   threshold,
   once,
   easing,
+  onAnimationStart,
+  onAnimationComplete,
 }: StaggerChildrenProps) {
   const childArray = Children.toArray(children);
 
@@ -37,6 +39,8 @@ export function StaggerChildren({
             threshold={threshold}
             once={once}
             easing={easing}
+            onAnimationStart={index === 0 ? onAnimationStart : undefined}
+            onAnimationComplete={index === childArray.length - 1 ? onAnimationComplete : undefined}
           >
             {child}
           </RevealOnScroll>
